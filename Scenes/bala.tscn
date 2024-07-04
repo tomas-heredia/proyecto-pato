@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmttencc4etyk"]
+
+[ext_resource type="Script" path="res://Scripts/StaticBody2D.gd" id="1_2two1"]
+[ext_resource type="Texture2D" uid="uid://du7g5ux7ey8l8" path="res://icon.svg" id="2_j7oyj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjk1e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j7oyj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uld4h"]
+size = Vector2(8, 4)
+
+[node name="Bala" type="CharacterBody2D" groups=["Balas"]]
+script = ExtResource("1_2two1")
+SPEED = 5
+metadata/_edit_group_ = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.4, 0.2)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.0644531, 0.0390625)
+sprite_frames = SubResource("SpriteFrames_vjk1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_uld4h")
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
