@@ -5,6 +5,7 @@ extends Node2D
 var velocidad_disparo_aux = velocidad_disparo
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	velocidad_disparo = 32 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

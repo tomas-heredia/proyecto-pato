@@ -26,7 +26,7 @@ metadata/_edit_group_ = true
 position = Vector2(-2.38419e-07, 0)
 scale = Vector2(0.4, 0.2)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Balas"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 modulate = Color(0, 0, 0, 1)

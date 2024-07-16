@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pu6qv64aukhq"]
+[gd_scene load_steps=15 format=3 uid="uid://pu6qv64aukhq"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_igbpo"]
 [ext_resource type="Texture2D" uid="uid://drndrpoej6pkx" path="res://Assets/Sprites/Pato/ducky-idle.png" id="2_lxi0u"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://hslevreuw27p" path="res://Scenes/arma.tscn" id="6_460hw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7m64f"]
-radius = 59.0762
+radius = 12.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_srkyv"]
-size = Vector2(77, 85)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykoip"]
+radius = 7.5
+height = 19.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1p7nt"]
 atlas = ExtResource("2_lxi0u")
@@ -66,8 +67,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve2D" id="Curve2D_48xea"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -230, -144, 0, 0, 0, 0, 240, -141, 0, 0, 0, 0, 245, 145, 0, 0, 0, 0, -229, 144, 0, 0, 0, 0, -230, -144)
+}
+point_count = 5
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(0, 5)
 script = ExtResource("1_igbpo")
+metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["Player"]]
 
@@ -76,13 +85,13 @@ position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_7m64f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.5, -7.5)
-shape = SubResource("RectangleShape2D_srkyv")
+position = Vector2(-0.5, -2.5)
+shape = SubResource("CapsuleShape2D_ykoip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
-position = Vector2(0, -47)
-scale = Vector2(4.70833, 3.65625)
+position = Vector2(0, -11)
+scale = Vector2(1, 0.776)
 sprite_frames = SubResource("SpriteFrames_jlqur")
 animation = &"Walk"
 autoplay = "Idle"
@@ -90,3 +99,12 @@ frame_progress = 0.294001
 
 [node name="Arma" parent="." instance=ExtResource("6_460hw")]
 position = Vector2(1, -2)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_48xea")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-230, -144)
+rotation = 0.00638289
+
+[node name="Marker2D" type="Marker2D" parent="Path2D/PathFollow2D"]

@@ -1,42 +1,55 @@
 [gd_scene load_steps=6 format=3 uid="uid://diux8ix85s22m"]
 
-[ext_resource type="Script" path="res://Enemigo.gd" id="1_li1jx"]
-[ext_resource type="Texture2D" uid="uid://du7g5ux7ey8l8" path="res://icon.svg" id="2_n1k6c"]
+[ext_resource type="Script" path="res://Scripts/Enemigo.gd" id="1_li1jx"]
+[ext_resource type="Texture2D" uid="uid://dq3dd5sr4wu7h" path="res://Assets/Sprites/Enemigos/Zombie/zombie.png" id="2_8o1v7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8exqv"]
+size = Vector2(16, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghl0l"]
+radius = 1503.47
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bmbje"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_n1k6c")
+"texture": ExtResource("2_8o1v7")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8o1v7")
+}],
+"loop": true,
+"name": &"Walk",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8exqv"]
-size = Vector2(62, 63)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ghl0l"]
-radius = 1503.47
 
 [node name="Enemigo" type="CharacterBody2D"]
 script = ExtResource("1_li1jx")
 
 [node name="Area2D" type="Area2D" parent="."]
+texture_filter = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_8exqv")
+
+[node name="Seguimineto" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seguimineto"]
+visible = false
+shape = SubResource("CircleShape2D_ghl0l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-2, -1)
 scale = Vector2(0.515625, 0.507813)
 sprite_frames = SubResource("SpriteFrames_bmbje")
+animation = &"Walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, -1.5)
-shape = SubResource("RectangleShape2D_8exqv")
-
-[node name="Seguimineto" type="Area2D" parent="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Seguimineto"]
-shape = SubResource("CircleShape2D_ghl0l")
-
-[connection signal="body_entered" from="Area2D/Seguimineto" to="." method="_on_seguimineto_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Seguimineto" to="." method="_on_seguimineto_body_entered"]
