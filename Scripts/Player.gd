@@ -5,9 +5,16 @@ extends CharacterBody2D
 var directionX
 var directionY
 var vectorRotacion:Vector2
-@export var vida = 300
+@export var vidaTotal = 300
+var vida
+var experiencia = 0
+var siguienteNivel = 100
+var nivel = 1
+signal pararZombies
+signal subirNivel
 
-
+func _ready():
+	vida = vidaTotal
 
 func _physics_process(delta):
 	moverMarco()
@@ -32,7 +39,8 @@ func _physics_process(delta):
 	velocity = velocity.normalized()*SPEED
 	vectorRotacion = velocity
 	var tween = create_tween()
-	tween.tween_property($Arma,"rotation",vectorRotacion.angle(),0.3)
+	var dir = lerp_angle($Arma.rotation, vectorRotacion.angle(), 1)
+	tween.tween_property($Arma,"rotation",dir,0.3)
 	move_and_slide()
 	
 	animaciones()
@@ -58,3 +66,31 @@ func moverMarco():
 	$Path2D.curve.set_point_position(2,position+Vector2(300,200))
 	$Path2D.curve.set_point_position(3,position+Vector2(-300,200))
 	$Path2D.curve.set_point_position(4,position+Vector2(-300,-200))
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Enemigos"):
+		vida = vida - area.get_parent().daño
+		if vida <= 0:
+			hide()
+			$Arma/TiempoDisparo.stop()
+			emit_signal("pararZombies")
+	else:
+		if area.is_in_group("Exp"):
+			experiencia = experiencia + 100
+			area.queue_free()
+			if experiencia >= siguienteNivel:
+				experiencia -= siguienteNivel
+				siguienteNivel += 500
+				nivel += 1
+				emit_signal("subirNivel")
+
+func aumentar_vida(valor):
+	vidaTotal +=  valor
+	vida = vidaTotal
+
+func aumentar_daño(valor):
+	$Arma.daño += valor
+
+func aumentar_velocidad(valor):
+	SPEED += valor

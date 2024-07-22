@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://diux8ix85s22m"]
+[gd_scene load_steps=7 format=3 uid="uid://diux8ix85s22m"]
 
 [ext_resource type="Script" path="res://Scripts/Enemigo.gd" id="1_li1jx"]
 [ext_resource type="Texture2D" uid="uid://dq3dd5sr4wu7h" path="res://Assets/Sprites/Enemigos/Zombie/zombie.png" id="2_8o1v7"]
+[ext_resource type="PackedScene" uid="uid://c6p31g88ddhd5" path="res://Scenes/experiencia.tscn" id="2_l0mm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8exqv"]
 size = Vector2(16, 20)
@@ -30,11 +31,12 @@ animations = [{
 
 [node name="Enemigo" type="CharacterBody2D"]
 script = ExtResource("1_li1jx")
+experiencia = ExtResource("2_l0mm8")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Enemigos"]]
 texture_filter = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemigos"]]
 position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_8exqv")
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6p31g88ddhd5"]
+
+[ext_resource type="Texture2D" uid="uid://c2n2ar6o5hlkr" path="res://Assets/Sprites/exp/exp.png" id="1_p0olh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7emf3"]
+radius = 16.1245
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ospy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p0olh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Experiencia" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["Exp"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7emf3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(1, -4)
+sprite_frames = SubResource("SpriteFrames_6ospy")

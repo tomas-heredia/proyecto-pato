@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpaqh1pxbc4mn"]
+
+[ext_resource type="Script" path="res://Scripts/menu_mejoras.gd" id="1_w74k2"]
+[ext_resource type="Texture2D" uid="uid://du7g5ux7ey8l8" path="res://icon.svg" id="2_t37by"]
+
+[node name="MenuMejoras" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_w74k2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -457.0
+offset_top = 152.0
+offset_right = -128.0
+offset_bottom = 460.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_t37by")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.21
+anchor_bottom = 0.148
+offset_right = -7.4
+offset_bottom = 17.08
+
+[node name="MasDaño" type="Button" parent="TextureRect/Label"]
+layout_mode = 1
+offset_left = 74.0
+offset_top = 31.0
+offset_right = 243.0
+offset_bottom = 96.0
+text = "Mas Daño"
+
+[node name="MasVelocidad" type="Button" parent="TextureRect/Label"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 195.0
+offset_right = 243.0
+offset_bottom = 266.0
+text = "Mas Velocidad"
+
+[node name="MasVida" type="Button" parent="TextureRect/Label"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 111.0
+offset_right = 243.0
+offset_bottom = 171.0
+text = "Mas Vida"
+
+[connection signal="button_up" from="TextureRect/Label/MasDaño" to="." method="_on_mas_daño_button_up"]
+[connection signal="button_up" from="TextureRect/Label/MasVelocidad" to="." method="_on_mas_velocidad_button_up"]
+[connection signal="button_up" from="TextureRect/Label/MasVida" to="." method="_on_mas_vida_button_up"]

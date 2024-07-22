@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=17 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Texture2D" uid="uid://c30auoq8k43x7" path="res://Assets/Backgrounds/Tilesets/TilesetFloor.png" id="1_cy0r8"]
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_buoie"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_khu1j"]
 [ext_resource type="PackedScene" uid="uid://diux8ix85s22m" path="res://Scenes/enemigo.tscn" id="8_7l0dy"]
+[ext_resource type="PackedScene" uid="uid://dpaqh1pxbc4mn" path="res://Scenes/menu_mejoras.tscn" id="10_fcit1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q110a"]
 texture = ExtResource("1_cy0r8")
@@ -1137,6 +1138,12 @@ script = ExtResource("5_j0aj3")
 zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_tluwv")
 
+[node name="Label" type="Label" parent="Player"]
+offset_left = -277.0
+offset_top = -175.0
+offset_right = -237.0
+offset_bottom = -152.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(409, 471)
 zoom = Vector2(3, 3)
@@ -1149,5 +1156,10 @@ position = Vector2(508, 464)
 
 [node name="ZombieTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="MenuMejoras" parent="." instance=ExtResource("10_fcit1")]
+
+[node name="Afuera" type="Marker2D" parent="."]
+position = Vector2(-450, 166)
 
 [connection signal="timeout" from="ZombieTimer" to="." method="_on_zombie_timer_timeout"]
