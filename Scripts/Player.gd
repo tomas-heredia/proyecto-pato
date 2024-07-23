@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 300.0
+@export var SPEED = 50.0
 var directionX
 var directionY
 var vectorRotacion:Vector2
+var vectorDir:Vector2
+var direccionActualX = 0
+var direccionActualY = 0
 @export var vidaTotal = 300
 var vida
 var experiencia = 0
@@ -18,33 +21,40 @@ func _ready():
 
 func _physics_process(delta):
 	moverMarco()
-	directionX = Input.get_axis("Izquierda", "Derecha")
 	
-	if directionX:
-		
-		
-		velocity.x = directionX * SPEED
-		
-	else:
-		
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	directionY = Input.get_axis("Arriba", "Abajo")
-	if directionY:
-		velocity.y = directionY * SPEED
-		
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-		
-	velocity = velocity.normalized()*SPEED
-	vectorRotacion = velocity
-	var tween = create_tween()
-	var dir = lerp_angle($Arma.rotation, vectorRotacion.angle(), 1)
-	tween.tween_property($Arma,"rotation",dir,0.3)
-	move_and_slide()
+	movimiento()
 	
 	animaciones()
+
+func movimiento():
+	directionX = Input.get_axis("Izquierda", "Derecha")
+	directionY = Input.get_axis("Arriba", "Abajo")
+	if direccionActualX != directionX or direccionActualY != directionY:
+		if directionX:
+			velocity.x = directionX * SPEED
+			
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			direccionActualX = directionX
+		if directionY:
+			velocity.y = directionY * SPEED
+			
+		else:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+			direccionActualY = directionY
+		
+		velocity = velocity.normalized()*SPEED
+		vectorRotacion = velocity
+		rotarArma(vectorRotacion)
+		move_and_slide()
+
+func rotarArma(vector):
+	var tween = create_tween()
+	var dir = lerp_angle($Arma.rotation, vector.angle(), 1)
+	tween.tween_property($Arma,"rotation",dir,0.1)
 	
+
+
 func animaciones():
 	if velocity == Vector2.ZERO:
 		$AnimatedSprite2D.play("Idle")

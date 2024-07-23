@@ -3,8 +3,10 @@ extends CharacterBody2D
 var vida : int
 @export var experiencia : PackedScene
 var daño = 100
-var SPEED = 30.0
+var SPEED = 20.0
 var player = null
+
+signal muerto
 func _ready():
 	vida = 300
 
@@ -34,6 +36,7 @@ func _on_area_2d_area_entered(objeto):
 		gema.position = self.position
 		get_tree().call_group("mundo", "add_child",gema)
 		queue_free()
+		emit_signal("muerto")
 
 func animaciones():
 	if velocity == Vector2.ZERO:

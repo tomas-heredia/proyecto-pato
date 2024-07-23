@@ -11,12 +11,12 @@ bala = ExtResource("2_pg0l5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(28, -0.5)
+position = Vector2(20, -0.5)
 scale = Vector2(0.541667, 0.479167)
 texture = ExtResource("3_q6q6a")
 
 [node name="Shoot" type="Marker2D" parent="."]
-position = Vector2(45, -11)
+position = Vector2(31, -8)
 
 [node name="Direction" type="Marker2D" parent="Shoot"]
 position = Vector2(21, 0)

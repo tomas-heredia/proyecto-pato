@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6p31g88ddhd5" path="res://Scenes/experiencia.tscn" id="2_l0mm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8exqv"]
-size = Vector2(16, 20)
+size = Vector2(22, 26)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghl0l"]
 radius = 1503.47
@@ -37,7 +37,6 @@ experiencia = ExtResource("2_l0mm8")
 texture_filter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemigos"]]
-position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_8exqv")
 
 [node name="Seguimineto" type="Area2D" parent="."]
