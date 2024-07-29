@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
+
 var direccion :Vector2
 var velocidad_padre:Vector2
 @export var SPEED:int
 var daño : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	daño = 300
-	pass # Replace with function body.
+	$Area2D/AnimatedSprite2D.animation = str(randi_range(0,1))
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
