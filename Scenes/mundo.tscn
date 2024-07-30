@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=21 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Texture2D" uid="uid://c30auoq8k43x7" path="res://Assets/Backgrounds/Tilesets/TilesetFloor.png" id="1_cy0r8"]
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_khu1j"]
 [ext_resource type="PackedScene" uid="uid://diux8ix85s22m" path="res://Scenes/enemigo.tscn" id="8_7l0dy"]
 [ext_resource type="PackedScene" uid="uid://dpaqh1pxbc4mn" path="res://Scenes/menu_mejoras.tscn" id="10_fcit1"]
+[ext_resource type="PackedScene" uid="uid://oj74cg0xomd0" path="res://Scenes/menu_final.tscn" id="11_37x06"]
+[ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="12_c82ro"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q110a"]
 texture = ExtResource("1_cy0r8")
@@ -1108,6 +1110,20 @@ duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o25xn"]
+bg_color = Color(0.180392, 0.713726, 0.333333, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_or4xn"]
+bg_color = Color(0.92549, 0.266667, 0.882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="Mundo" type="Node2D" groups=["mundo"]]
 script = ExtResource("1_p17er")
 Zombie = ExtResource("8_7l0dy")
@@ -1130,31 +1146,20 @@ tile_set = SubResource("TileSet_6vvjt")
 format = 2
 layer_0/tile_data = PackedInt32Array(720923, 196611, 18, 786459, 196611, 19, 851995, 196611, 20, 720924, 262147, 18, 786460, 262147, 19, 851996, 262147, 20, 720925, 327683, 18, 786461, 327683, 19, 851997, 327683, 20, 720918, 262147, 3, 786454, 262147, 4, 655383, 327683, 2, 720919, 327683, 3, 786455, 327683, 4, 655384, 393219, 2, 720920, 393219, 3, 786456, 393219, 4, 720921, 458755, 3, 786457, 458755, 4, 1507339, 196611, 10, 1835012, 1179649, 6, 917544, 131075, 11, 589844, 131075, 11, 655391, 262145, 0, 720927, 262145, 1, 786463, 262145, 2, 655392, 327681, 0, 720928, 327681, 1, 786464, 327681, 2, 655393, 393217, 0, 720929, 393217, 1, 786465, 393217, 2, 655394, 458753, 0, 720930, 458753, 1, 786466, 458753, 2, 852003, 393217, 8, 458777, 1, 0, 524313, 1, 1, 589849, 1, 2, 458778, 65537, 0, 524314, 65537, 1, 589850, 65537, 2, 458779, 131073, 0, 524315, 131073, 1, 589851, 131073, 2, 458780, 196609, 0, 524316, 196609, 1, 589852, 196609, 2, 589853, 262145, 6, 655389, 262145, 7, 589854, 327681, 6, 655390, 327681, 7, 786449, 65539, 11, 589856, 65539, 11, 1376307, 65539, 11, 196615, 65539, 11, 2162741, 1048579, 0, 2228277, 1048579, 1, 2162742, 1114115, 0, 2228278, 1114115, 1, 2097202, 196611, 18, 2162738, 196611, 19, 2228274, 196611, 20, 2097203, 262147, 18, 2162739, 262147, 19, 2228275, 262147, 20, 2097204, 327683, 18, 2162740, 327683, 19, 2228276, 327683, 20, 2031671, 786435, 13, 1441860, 327683, 9, 2228271, 131075, 8, 2293807, 131075, 9, 2228272, 196611, 8, 2293808, 196611, 9, 852028, 131075, 8, 917564, 131075, 9, 852029, 196611, 8, 917565, 196611, 9, 917567, 131075, 8, 983103, 131075, 9, 917568, 196611, 8, 983104, 196611, 9, 1769479, 393219, 8, 1835015, 393219, 9, 1769480, 458755, 8, 1835016, 458755, 9, 1769474, 1048577, 5, 1835010, 1048577, 6, 1900546, 1048577, 7, 1966082, 1048577, 8, 2031618, 1048577, 9, 1769475, 1114113, 5, 1835011, 1114113, 6, 1900547, 1114113, 7, 1966083, 1114113, 8, 2031619, 1114113, 9, 1769476, 1179649, 5, 1900548, 1179649, 7, 1966084, 1179649, 8, 2031620, 1179649, 9, 1769477, 1245185, 5, 1835013, 1245185, 6, 1900549, 1245185, 7, 1966085, 1245185, 8, 2031621, 1245185, 9, 2097153, 262145, 6, 2162689, 262145, 7, 2097154, 327681, 6, 2162690, 327681, 7, 1638404, 196611, 11, 2031622, 65539, 11, 983101, 262147, 10, 983099, 65539, 11, 852027, 262147, 10, 393242, 196611, 10, 524322, 196611, 10, 851993, 196611, 11, 2293810, 589827, 10, 2293809, 589827, 10, 2687001, 589827, 10, 3080250, 589827, 10, 262206, 589827, 10, 1572895, 196611, 11, 917506, 196611, 11, 393268, 196611, 11, 2687041, 196611, 11, 458782, 131075, 8, 524318, 131075, 9, 458783, 196611, 8, 524319, 196611, 9, 2424904, 3, 11, 2490382, 3, 11, 589830, 3, 11, 2555943, 196611, 11, 720970, 196611, 11, 1769511, 131075, 11, 1900564, 131075, 11, 655379, 131075, 11, 393243, 131075, 11, 917531, 524291, 10, 2097207, 524291, 10, 2031670, 524291, 10, 2097160, 524291, 10, 1900544, 524291, 10)
 
-[node name="Player" parent="." instance=ExtResource("2_7ux04")]
-position = Vector2(409, 471)
-
-[node name="PhantomCamera2D" type="Node2D" parent="Player"]
-script = ExtResource("5_j0aj3")
-zoom = Vector2(3, 3)
-tween_resource = SubResource("Resource_tluwv")
-
-[node name="Label" type="Label" parent="Player"]
-offset_left = -277.0
-offset_top = -175.0
-offset_right = -237.0
-offset_bottom = -152.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(409, 471)
+position = Vector2(594, 722)
 zoom = Vector2(3, 3)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("7_khu1j")
 
 [node name="Enemigo" parent="." instance=ExtResource("8_7l0dy")]
-position = Vector2(508, 464)
+position = Vector2(685, 725)
 
 [node name="MenuMejoras" parent="." instance=ExtResource("10_fcit1")]
+
+[node name="menu_final" parent="." instance=ExtResource("11_37x06")]
+process_mode = 2
 
 [node name="Afuera" type="Marker2D" parent="."]
 position = Vector2(-450, 166)
@@ -1167,6 +1172,47 @@ one_shot = true
 
 [node name="ZombieTimer" type="Timer" parent="Timers"]
 autostart = true
+
+[node name="Player" parent="." instance=ExtResource("2_7ux04")]
+light_mask = 4
+position = Vector2(594, 722)
+
+[node name="PhantomCamera2D" type="Node2D" parent="Player"]
+script = ExtResource("5_j0aj3")
+zoom = Vector2(3, 3)
+tween_resource = SubResource("Resource_tluwv")
+
+[node name="Interfaces" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="Player/Interfaces"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.292
+anchor_bottom = 0.033
+offset_left = -199.0
+offset_top = -153.0
+offset_right = 203.948
+offset_bottom = -130.0
+theme_override_styles/background = SubResource("StyleBoxFlat_o25xn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_or4xn")
+show_percentage = false
+script = ExtResource("12_c82ro")
+
+[node name="Oleada" type="Label" parent="Player/Interfaces"]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -131.0
+offset_right = 18.0
+offset_bottom = -108.0
+text = "Oleada"
+
+[node name="Label" type="Label" parent="Player"]
+offset_left = -277.0
+offset_top = -175.0
+offset_right = -237.0
+offset_bottom = -152.0
 
 [connection signal="timeout" from="Timers/DOSTimer" to="." method="_on_dos_timer_timeout"]
 [connection signal="timeout" from="Timers/ZombieTimer" to="." method="_on_zombie_timer_timeout"]

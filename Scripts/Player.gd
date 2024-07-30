@@ -13,13 +13,16 @@ var vida
 var experiencia = 0
 var siguienteNivel = 100
 var nivel = 1
-signal pararZombies
+signal Muerte                                  
 signal subirNivel
 
 func _ready():
 	vida = vidaTotal
+	$ProgressBar.max_value = vidaTotal
+	$ProgressBar.value = vida
 
 func _physics_process(delta):
+	
 	moverMarco()
 	
 	movimiento()
@@ -81,10 +84,12 @@ func moverMarco():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Enemigos"):
 		vida = vida - area.get_parent().daño
+		$ProgressBar.value = vida
 		if vida <= 0:
 			hide()
 			$Arma/TiempoDisparo.stop()
-			emit_signal("pararZombies")
+			
+			emit_signal("Muerte")
 	else:
 		if area.is_in_group("Exp"):
 			experiencia = experiencia + 100
@@ -98,6 +103,8 @@ func _on_area_2d_area_entered(area):
 func aumentar_vida(valor):
 	vidaTotal +=  valor
 	vida = vidaTotal
+	$ProgressBar.max_value = vidaTotal
+	$ProgressBar.value = vida
 
 func aumentar_daño(valor):
 	$Arma.daño += valor

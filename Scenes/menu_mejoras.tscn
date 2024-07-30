@@ -8,14 +8,14 @@ process_mode = 2
 script = ExtResource("1_w74k2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -457.0
-offset_top = 152.0
-offset_right = -128.0
-offset_bottom = 460.0
+offset_left = -747.0
+offset_top = 261.0
+offset_right = -418.0
+offset_bottom = 569.0
+scale = Vector2(1.29136, 1.24349)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_t37by")
-metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 1

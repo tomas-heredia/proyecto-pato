@@ -6,7 +6,8 @@ signal aumentarVelocidad
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	#hide()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,3 +27,5 @@ func _on_mas_velocidad_button_up():
 
 func _on_mas_vida_button_up():
 	emit_signal("aumentarVida")
+	
+

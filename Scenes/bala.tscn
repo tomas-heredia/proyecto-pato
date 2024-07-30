@@ -27,6 +27,8 @@ animations = [{
 size = Vector2(13, 18)
 
 [node name="Bala" type="CharacterBody2D" groups=["Balas"]]
+show_behind_parent = true
+visibility_layer = 2
 script = ExtResource("1_2two1")
 SPEED = 1
 

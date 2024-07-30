@@ -30,13 +30,14 @@ func _on_area_2d_area_entered(objeto):
 	if objeto.is_in_group("Balas"):
 		
 		vida = vida - objeto.get_parent().daño
-		objeto.queue_free()
+		objeto.free()
+		
 	if vida <= 0:
 		var gema = experiencia.instantiate()
 		gema.position = self.position
 		get_tree().call_group("mundo", "add_child",gema)
-		queue_free()
 		emit_signal("muerto")
+		queue_free()
 
 func animaciones():
 	if velocity == Vector2.ZERO:
