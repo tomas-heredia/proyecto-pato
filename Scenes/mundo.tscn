@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=22 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Texture2D" uid="uid://c30auoq8k43x7" path="res://Assets/Backgrounds/Tilesets/TilesetFloor.png" id="1_cy0r8"]
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
 [ext_resource type="Texture2D" uid="uid://4mexdat35axq" path="res://Assets/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="2_5r6h3"]
 [ext_resource type="PackedScene" uid="uid://pu6qv64aukhq" path="res://Scenes/player.tscn" id="2_7ux04"]
+[ext_resource type="PackedScene" uid="uid://c5iex2qhx53uq" path="res://Mate.tscn" id="3_36ur1"]
 [ext_resource type="Texture2D" uid="uid://bywri6e066uag" path="res://Assets/Backgrounds/Tilesets/TilesetNature.png" id="3_yroiy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_j0aj3"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_buoie"]
@@ -1127,6 +1128,7 @@ corner_radius_bottom_left = 12
 [node name="Mundo" type="Node2D" groups=["mundo"]]
 script = ExtResource("1_p17er")
 Zombie = ExtResource("8_7l0dy")
+Mate = ExtResource("3_36ur1")
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
@@ -1173,6 +1175,9 @@ one_shot = true
 [node name="ZombieTimer" type="Timer" parent="Timers"]
 autostart = true
 
+[node name="MateTimer" type="Timer" parent="Timers"]
+wait_time = 3.0
+
 [node name="Player" parent="." instance=ExtResource("2_7ux04")]
 light_mask = 4
 position = Vector2(594, 722)
@@ -1216,3 +1221,4 @@ offset_bottom = -152.0
 
 [connection signal="timeout" from="Timers/DOSTimer" to="." method="_on_dos_timer_timeout"]
 [connection signal="timeout" from="Timers/ZombieTimer" to="." method="_on_zombie_timer_timeout"]
+[connection signal="timeout" from="Timers/MateTimer" to="." method="_on_mate_timer_timeout"]

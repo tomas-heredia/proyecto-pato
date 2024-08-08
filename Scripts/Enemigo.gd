@@ -8,6 +8,7 @@ var player = null
 
 signal muerto
 func _ready():
+	
 	vida = 300
 
 func _physics_process(delta):
@@ -27,18 +28,25 @@ func follow():
 
 
 func _on_area_2d_area_entered(objeto):
+	
 	if objeto.is_in_group("Balas"):
 		
 		vida = vida - objeto.get_parent().daño
 		objeto.free()
+	elif objeto.is_in_group("colision"):
 		
+		objeto.impacto()
+	elif objeto.is_in_group("proyectilArea"):
+		
+		if objeto.dañar:
+			vida -= objeto.daño
 	if vida <= 0:
 		var gema = experiencia.instantiate()
 		gema.position = self.position
 		get_tree().call_group("mundo", "add_child",gema)
 		emit_signal("muerto")
 		queue_free()
-
+	
 func animaciones():
 	if velocity == Vector2.ZERO:
 		$AnimatedSprite2D.play("Idle")

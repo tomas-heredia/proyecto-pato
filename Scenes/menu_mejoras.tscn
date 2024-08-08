@@ -22,8 +22,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.21
 anchor_bottom = 0.148
-offset_right = -7.4
-offset_bottom = 17.08
+offset_right = -13.09
+offset_bottom = 0.416
 
 [node name="MasDaño" type="Button" parent="TextureRect/Label"]
 layout_mode = 1
@@ -38,7 +38,7 @@ layout_mode = 0
 offset_left = 74.0
 offset_top = 195.0
 offset_right = 243.0
-offset_bottom = 266.0
+offset_bottom = 253.0
 text = "Mas Velocidad"
 
 [node name="MasVida" type="Button" parent="TextureRect/Label"]
@@ -49,6 +49,24 @@ offset_right = 243.0
 offset_bottom = 171.0
 text = "Mas Vida"
 
+[node name="Mate" type="Button" parent="TextureRect/Label"]
+layout_mode = 0
+offset_left = 267.935
+offset_top = 110.978
+offset_right = 436.935
+offset_bottom = 162.978
+text = "Mate"
+
+[node name="Marker1" type="Marker2D" parent="TextureRect"]
+position = Vector2(74.3402, 31.3633)
+
+[node name="Marker2" type="Marker2D" parent="TextureRect"]
+position = Vector2(74.3402, 110.978)
+
+[node name="Marker3" type="Marker2D" parent="TextureRect"]
+position = Vector2(74.3402, 194.614)
+
 [connection signal="button_up" from="TextureRect/Label/MasDaño" to="." method="_on_mas_daño_button_up"]
 [connection signal="button_up" from="TextureRect/Label/MasVelocidad" to="." method="_on_mas_velocidad_button_up"]
 [connection signal="button_up" from="TextureRect/Label/MasVida" to="." method="_on_mas_vida_button_up"]
+[connection signal="button_up" from="TextureRect/Label/Mate" to="." method="_on_mate_button_up"]

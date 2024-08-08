@@ -3,6 +3,7 @@ extends CanvasLayer
 signal aumentarDaño
 signal aumentarVida
 signal aumentarVelocidad
+signal mate
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,3 +30,6 @@ func _on_mas_vida_button_up():
 	emit_signal("aumentarVida")
 	
 
+
+func _on_mate_button_up():
+	emit_signal("mate")

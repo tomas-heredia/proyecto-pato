@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5iex2qhx53uq"]
+
+[ext_resource type="Script" path="res://Mate.gd" id="1_3h4w5"]
+[ext_resource type="Texture2D" uid="uid://du7g5ux7ey8l8" path="res://icon.svg" id="2_4md6v"]
+[ext_resource type="Script" path="res://Area.gd" id="2_xnoju"]
+[ext_resource type="Script" path="res://Colision.gd" id="4_bb0ga"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sduwl"]
+radius = 127.577
+
+[sub_resource type="Animation" id="Animation_v51qt"]
+resource_name = "rotation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MateSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_62lab"]
+_data = {
+"rotation": SubResource("Animation_v51qt")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahqnj"]
+radius = 38.3275
+
+[node name="Mate" type="CharacterBody2D"]
+scale = Vector2(0.281943, 0.241601)
+script = ExtResource("1_3h4w5")
+
+[node name="Area" type="Area2D" parent="."]
+script = ExtResource("2_xnoju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" groups=["proyectilArea"]]
+shape = SubResource("CircleShape2D_sduwl")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area"]
+show_behind_parent = true
+scale = Vector2(1.92039, 1.90637)
+texture = ExtResource("2_4md6v")
+
+[node name="MateSprite" type="Sprite2D" parent="."]
+rotation = 2.29777
+scale = Vector2(0.514286, 0.469388)
+texture = ExtResource("2_4md6v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_62lab")
+}
+
+[node name="Colision" type="Area2D" parent="." groups=["colision"]]
+script = ExtResource("4_bb0ga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colision" groups=["colision"]]
+shape = SubResource("CircleShape2D_ahqnj")
+
+[node name="AreaTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="DañoTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="AreaTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DañoTimer" to="." method="_on_daño_timer_timeout"]

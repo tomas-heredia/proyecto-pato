@@ -1,6 +1,10 @@
 extends Node2D
 @export var Zombie : PackedScene
 @export var menuNivel : PackedScene
+@export var Mate : PackedScene
+
+
+var seguirZombie = null
 var estadoOleada: float
 var maxOleada: int
 var numeroOleada
@@ -20,6 +24,7 @@ func _ready():
 	$MenuMejoras.connect("aumentarDaño",aumentarDaño)
 	$MenuMejoras.connect("aumentarVelocidad",aumentarVelocidad)
 	$MenuMejoras.connect("aumentarVida",aumentarVida)
+	$MenuMejoras.connect("mate", mate)
 	
 	$Enemigo.connect("muerto",aumentarOleada)
 	
@@ -80,6 +85,23 @@ func aumentarVida():
 	$Player.aumentar_vida(100)
 	$MenuMejoras/TextureRect.position = $Afuera.position
 	$MenuMejoras.pausar()
+
+func mate():
+	var timerMate = $Timers/MateTimer
+	timerMate.start()
+	$MenuMejoras/TextureRect.position = $Afuera.position
+	$MenuMejoras.pausar()
+	
+func _on_mate_timer_timeout():
+	var mate = Mate.instantiate()
+	add_child(mate)
+	mate.position = $Player.position
+	seguirZombie = get_closest_object(get_tree().get_nodes_in_group("Enemigos"))
+	print(seguirZombie)
+	mate.velocity = mate.global_position.direction_to(seguirZombie.global_position) * mate.SPEED
+
+
+
 func aumentarOleada():
 	estadoOleada = 1 + estadoOleada
 	$Player/Interfaces/ProgressBar.update((estadoOleada/maxOleada)*10)
@@ -107,22 +129,17 @@ func _on_dos_timer_timeout():
 	$Timers/ZombieTimer.start()
 	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+func get_closest_object(objects):
+	var closest_distance = INF
+	var closest_object = null
+	var current_position = $Player.global_position
+	
+	for obj in objects:
+		var distance = current_position.distance_to(obj.global_position)
+		if distance < closest_distance:
+			closest_distance = distance
+			closest_object = obj
+	return closest_object
 
 
 
