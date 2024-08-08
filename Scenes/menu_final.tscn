@@ -1,10 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://oj74cg0xomd0"]
+[gd_scene load_steps=12 format=3 uid="uid://oj74cg0xomd0"]
 
 [ext_resource type="Script" path="res://Scenes/menu_dinal.gd" id="1_pn80q"]
-[ext_resource type="Texture2D" uid="uid://du7g5ux7ey8l8" path="res://icon.svg" id="2_wufkx"]
+[ext_resource type="Texture2D" uid="uid://cbf6ko0t2tws1" path="res://Assets/Sprites/Menu/Sprite-MenuFinal.png" id="2_tvr5h"]
+[ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_b4dyu"]
+[ext_resource type="Texture2D" uid="uid://dg1vmuxspkm2l" path="res://Assets/Sprites/Menu/Sprite-MenuBoton.png" id="4_qeef2"]
 
 [sub_resource type="Theme" id="Theme_1ki14"]
 default_font_size = 25
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5ia2"]
+texture = ExtResource("4_qeef2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ckehr"]
+texture = ExtResource("4_qeef2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3awyx"]
+texture = ExtResource("4_qeef2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1hmf2"]
+texture = ExtResource("4_qeef2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_msc6v"]
+texture = ExtResource("4_qeef2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i1rqs"]
+texture = ExtResource("4_qeef2")
 
 [node name="menu_final" type="CanvasLayer"]
 script = ExtResource("1_pn80q")
@@ -16,14 +36,17 @@ offset_right = -73.0
 offset_bottom = 293.0
 scale = Vector2(1.1468, 1.09838)
 theme = SubResource("Theme_1ki14")
-texture = ExtResource("2_wufkx")
+texture = ExtResource("2_tvr5h")
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 43.0
-offset_right = 276.0
-offset_bottom = 89.0
+offset_left = 56.6795
+offset_top = 62.8198
+offset_right = 328.679
+offset_bottom = 102.82
+theme_override_colors/font_color = Color(0.215686, 0.270588, 0.164706, 1)
+theme_override_fonts/font = ExtResource("3_b4dyu")
+theme_override_font_sizes/font_size = 40
 text = "Te han debugueado"
 
 [node name="Reiniciar" type="Button" parent="TextureRect"]
@@ -31,26 +54,40 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.043
 anchor_bottom = 0.028
-offset_left = 242.0
-offset_top = 150.0
-offset_right = 337.316
-offset_bottom = 184.496
+offset_left = 226.718
+offset_top = 174.803
+offset_right = 329.034
+offset_bottom = 213.299
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b4dyu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_n5ia2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ckehr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3awyx")
 text = "Reiniciar"
 
 [node name="Salir" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 150.0
-offset_right = 145.0
-offset_bottom = 196.0
+offset_left = 42.7276
+offset_top = 175.713
+offset_right = 154.728
+offset_bottom = 221.713
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b4dyu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_1hmf2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_msc6v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i1rqs")
 text = "Salir"
 
 [node name="Oleadas" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 144.751
-offset_top = 89.2223
-offset_right = 238.751
-offset_bottom = 124.222
+offset_left = 132.543
+offset_top = 118.356
+offset_right = 226.543
+offset_bottom = 153.356
+theme_override_fonts/font = ExtResource("3_b4dyu")
+theme_override_font_sizes/font_size = 30
 text = "Oleada:"
 
 [connection signal="button_up" from="TextureRect/Reiniciar" to="." method="_on_reiniciar_button_up"]
