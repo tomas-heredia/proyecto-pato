@@ -56,6 +56,10 @@ Derecha={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_3="Mate"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

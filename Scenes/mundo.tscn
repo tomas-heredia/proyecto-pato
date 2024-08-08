@@ -1,18 +1,19 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=23 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Texture2D" uid="uid://c30auoq8k43x7" path="res://Assets/Backgrounds/Tilesets/TilesetFloor.png" id="1_cy0r8"]
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
 [ext_resource type="Texture2D" uid="uid://4mexdat35axq" path="res://Assets/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="2_5r6h3"]
 [ext_resource type="PackedScene" uid="uid://pu6qv64aukhq" path="res://Scenes/player.tscn" id="2_7ux04"]
-[ext_resource type="PackedScene" uid="uid://c5iex2qhx53uq" path="res://Mate.tscn" id="3_36ur1"]
+[ext_resource type="PackedScene" uid="uid://c5iex2qhx53uq" path="res://Scenes/Mate.tscn" id="3_36ur1"]
 [ext_resource type="Texture2D" uid="uid://bywri6e066uag" path="res://Assets/Backgrounds/Tilesets/TilesetNature.png" id="3_yroiy"]
+[ext_resource type="PackedScene" uid="uid://bs7jxuamlipw8" path="res://Scenes/anti_virus.tscn" id="4_noud0"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_j0aj3"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_buoie"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_khu1j"]
 [ext_resource type="PackedScene" uid="uid://diux8ix85s22m" path="res://Scenes/enemigo.tscn" id="8_7l0dy"]
 [ext_resource type="PackedScene" uid="uid://dpaqh1pxbc4mn" path="res://Scenes/menu_mejoras.tscn" id="10_fcit1"]
 [ext_resource type="PackedScene" uid="uid://oj74cg0xomd0" path="res://Scenes/menu_final.tscn" id="11_37x06"]
-[ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="12_c82ro"]
+[ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="12_c82ro"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q110a"]
 texture = ExtResource("1_cy0r8")
@@ -1129,6 +1130,7 @@ corner_radius_bottom_left = 12
 script = ExtResource("1_p17er")
 Zombie = ExtResource("8_7l0dy")
 Mate = ExtResource("3_36ur1")
+Antivirus = ExtResource("4_noud0")
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
@@ -1188,6 +1190,8 @@ zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_tluwv")
 
 [node name="Interfaces" type="Control" parent="Player"]
+visibility_layer = 8
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 
