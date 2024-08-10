@@ -1,72 +1,144 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpaqh1pxbc4mn"]
+[gd_scene load_steps=18 format=3 uid="uid://dpaqh1pxbc4mn"]
 
 [ext_resource type="Script" path="res://Scripts/menu_mejoras.gd" id="1_w74k2"]
-[ext_resource type="Texture2D" uid="uid://du7g5ux7ey8l8" path="res://icon.svg" id="2_t37by"]
+[ext_resource type="Texture2D" uid="uid://c5fnr3y2v8ejb" path="res://Assets/Sprites/Menu/Sprite-MenuMejoras.png" id="2_c3h1v"]
+[ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_b75xv"]
+[ext_resource type="Texture2D" uid="uid://dg1vmuxspkm2l" path="res://Assets/Sprites/Menu/Sprite-MenuBoton.png" id="4_uxlb8"]
+[ext_resource type="Texture2D" uid="uid://dudg32n0u8yxh" path="res://Assets/Sprites/Menu/Sprite-MenuBotonPressed.png" id="5_067ie"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_so8h8"]
+texture = ExtResource("4_uxlb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2otug"]
+texture = ExtResource("4_uxlb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bsrg4"]
+texture = ExtResource("5_067ie")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exb40"]
+texture = ExtResource("4_uxlb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_winht"]
+texture = ExtResource("4_uxlb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e1kow"]
+texture = ExtResource("5_067ie")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ny6y5"]
+texture = ExtResource("4_uxlb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2dvj"]
+texture = ExtResource("4_uxlb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brgg5"]
+texture = ExtResource("5_067ie")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j2tv7"]
+texture = ExtResource("4_uxlb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd74d"]
+texture = ExtResource("4_uxlb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3xb00"]
+texture = ExtResource("5_067ie")
 
 [node name="MenuMejoras" type="CanvasLayer"]
 process_mode = 2
 script = ExtResource("1_w74k2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -747.0
-offset_top = 261.0
-offset_right = -418.0
-offset_bottom = 569.0
+offset_left = -746.0
+offset_top = 251.0
+offset_right = -396.0
+offset_bottom = 531.0
 scale = Vector2(1.29136, 1.24349)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_t37by")
+texture = ExtResource("2_c3h1v")
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.21
 anchor_bottom = 0.148
-offset_right = -13.09
-offset_bottom = 0.416
+offset_left = 126.998
+offset_top = 21.7131
+offset_right = 169.908
+offset_bottom = 20.7171
+theme_override_colors/font_color = Color(0.215686, 0.270588, 0.164706, 1)
+theme_override_fonts/font = ExtResource("3_b75xv")
+theme_override_font_sizes/font_size = 35
+text = "Mejoras "
 
-[node name="MasDaño" type="Button" parent="TextureRect/Label"]
+[node name="MasDaño" type="Button" parent="TextureRect"]
 layout_mode = 1
-offset_left = 74.0
-offset_top = 31.0
-offset_right = 243.0
-offset_bottom = 96.0
+offset_left = 99.8947
+offset_top = 71.5728
+offset_right = 249.895
+offset_bottom = 106.573
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b75xv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_so8h8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2otug")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bsrg4")
 text = "Mas Daño"
 
-[node name="MasVelocidad" type="Button" parent="TextureRect/Label"]
+[node name="MasVelocidad" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 195.0
-offset_right = 243.0
-offset_bottom = 253.0
+offset_left = 100.669
+offset_top = 156.013
+offset_right = 250.669
+offset_bottom = 191.013
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b75xv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_exb40")
+theme_override_styles/hover = SubResource("StyleBoxTexture_winht")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e1kow")
 text = "Mas Velocidad"
 
-[node name="MasVida" type="Button" parent="TextureRect/Label"]
+[node name="MasVida" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 111.0
-offset_right = 243.0
-offset_bottom = 171.0
+offset_left = 99.8947
+offset_top = 114.195
+offset_right = 249.895
+offset_bottom = 149.195
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b75xv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_ny6y5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s2dvj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_brgg5")
 text = "Mas Vida"
 
-[node name="Mate" type="Button" parent="TextureRect/Label"]
+[node name="Mate" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 267.935
-offset_top = 110.978
-offset_right = 436.935
-offset_bottom = 162.978
+offset_left = 101.443
+offset_top = 197.83
+offset_right = 251.443
+offset_bottom = 232.83
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b75xv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_j2tv7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xd74d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3xb00")
 text = "Mate"
 
 [node name="Marker1" type="Marker2D" parent="TextureRect"]
 position = Vector2(74.3402, 31.3633)
+scale = Vector2(1, 1)
 
 [node name="Marker2" type="Marker2D" parent="TextureRect"]
-position = Vector2(74.3402, 110.978)
+position = Vector2(75.8889, 110.978)
+scale = Vector2(1, 1)
 
 [node name="Marker3" type="Marker2D" parent="TextureRect"]
-position = Vector2(74.3402, 194.614)
+position = Vector2(75.8889, 194.614)
+scale = Vector2(1, 1)
 
-[connection signal="button_up" from="TextureRect/Label/MasDaño" to="." method="_on_mas_daño_button_up"]
-[connection signal="button_up" from="TextureRect/Label/MasVelocidad" to="." method="_on_mas_velocidad_button_up"]
-[connection signal="button_up" from="TextureRect/Label/MasVida" to="." method="_on_mas_vida_button_up"]
-[connection signal="button_up" from="TextureRect/Label/Mate" to="." method="_on_mate_button_up"]
+[connection signal="button_up" from="TextureRect/MasDaño" to="." method="_on_mas_daño_button_up"]
+[connection signal="button_up" from="TextureRect/MasVelocidad" to="." method="_on_mas_velocidad_button_up"]
+[connection signal="button_up" from="TextureRect/MasVida" to="." method="_on_mas_vida_button_up"]
+[connection signal="button_up" from="TextureRect/Mate" to="." method="_on_mate_button_up"]
