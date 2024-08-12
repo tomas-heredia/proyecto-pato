@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://oj74cg0xomd0"]
 
 [ext_resource type="Script" path="res://Scenes/menu_dinal.gd" id="1_pn80q"]
-[ext_resource type="Texture2D" uid="uid://bohgcsah5n27k" path="res://Assets/Sprites/Menu/Sprite-MenuFinal2.png" id="2_j1nm7"]
+[ext_resource type="Texture2D" uid="uid://cbf6ko0t2tws1" path="res://Assets/Sprites/Menu/Sprite-MenuFinal.png" id="2_udtgu"]
 [ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_b4dyu"]
 [ext_resource type="Texture2D" uid="uid://dg1vmuxspkm2l" path="res://Assets/Sprites/Menu/Sprite-MenuBoton.png" id="4_qeef2"]
 [ext_resource type="Texture2D" uid="uid://dudg32n0u8yxh" path="res://Assets/Sprites/Menu/Sprite-MenuBotonPressed.png" id="5_kxjsb"]
@@ -37,14 +37,14 @@ offset_right = -73.0
 offset_bottom = 293.0
 scale = Vector2(1.1468, 1.09838)
 theme = SubResource("Theme_1ki14")
-texture = ExtResource("2_j1nm7")
+texture = ExtResource("2_udtgu")
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 0
 offset_left = 61.9114
-offset_top = 82.8493
+offset_top = 75.5658
 offset_right = 321.911
-offset_bottom = 129.849
+offset_bottom = 122.566
 theme_override_colors/font_color = Color(0.215686, 0.270588, 0.164706, 1)
 theme_override_fonts/font = ExtResource("3_b4dyu")
 theme_override_font_sizes/font_size = 37
@@ -57,9 +57,9 @@ anchors_preset = -1
 anchor_right = 0.043
 anchor_bottom = 0.028
 offset_left = 210.15
-offset_top = 176.624
+offset_top = 178.445
 offset_right = 312.466
-offset_bottom = 215.12
+offset_bottom = 216.941
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b4dyu")
 theme_override_font_sizes/font_size = 24
@@ -71,9 +71,9 @@ text = "Reiniciar"
 [node name="Salir" type="Button" parent="TextureRect"]
 layout_mode = 0
 offset_left = 52.3195
-offset_top = 175.713
+offset_top = 177.534
 offset_right = 164.32
-offset_bottom = 221.713
+offset_bottom = 223.534
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b4dyu")
 theme_override_font_sizes/font_size = 24
