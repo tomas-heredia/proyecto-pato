@@ -1188,6 +1188,7 @@ zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_tluwv")
 
 [node name="Interfaces" type="Control" parent="Player"]
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 

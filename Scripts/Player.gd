@@ -17,6 +17,7 @@ signal Muerte
 signal subirNivel
 
 func _ready():
+	vidaTotal = Guardado.game_data["vida"]
 	vida = vidaTotal
 	$ProgressBar.max_value = vidaTotal
 	$ProgressBar.value = vida
