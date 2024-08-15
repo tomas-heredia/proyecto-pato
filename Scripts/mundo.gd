@@ -20,12 +20,12 @@ func _ready():
 	
 	$Player.connect("Muerte",muerte)
 	$Player.connect("subirNivel",aumentarNivel)
-	
+	$MenuMejoras.visible = false  # Oculta el menú al iniciar el juego.
+	$menu_final.visible = false  # Oculta el menú al iniciar el juego.
 	$MenuMejoras.connect("aumentarDaño",aumentarDaño)
 	$MenuMejoras.connect("aumentarVelocidad",aumentarVelocidad)
 	$MenuMejoras.connect("aumentarVida",aumentarVida)
 	$MenuMejoras.connect("mate", mate)
-	
 	$Enemigo.connect("muerto",aumentarOleada)
 	
 	$menu_final.connect("reiniciar", reiniciar)
@@ -51,13 +51,15 @@ func _on_zombie_timer_timeout():
 
 func muerte():
 	$Timers/ZombieTimer.stop()
-	$menu_final/TextureRect.position = $Player.position
+	$menu_final.visible = true
+	#$menu_final/TextureRect.position = $Player.position
 	$menu_final.muerto(numeroOleada)
 	$menu_final.pausar()
 
 func victira():
 	$Timers/ZombieTimer.stop()
-	$menu_final/TextureRect.position = $Player.position
+	$menu_final.visible = true
+	#$menu_final/TextureRect.position = $Player.position
 	$menu_final.ganar(numeroOleada)
 	$menu_final.pausar()
 	
@@ -65,31 +67,37 @@ func reiniciar():
 	$menu_final.pausar()
 	
 func aumentarNivel():
+	#Funcion que despliega el menu de mejoras
 	
-	$MenuMejoras/TextureRect.position = $Player.position
+	#$MenuMejoras/TextureRect.position = $Player.position
+	$MenuMejoras.visible = true  
 	
 	$MenuMejoras.pausar()
 	
 func aumentarDaño():
 	$Player.aumentar_daño(100)
-	$MenuMejoras/TextureRect.hide()
-	$MenuMejoras/TextureRect.position = $Afuera.position
+	$MenuMejoras.visible = false  
+	#$MenuMejoras/TextureRect.hide()
+	#$MenuMejoras/TextureRect.position = $Afuera.position
 	$MenuMejoras.pausar()
 
 func aumentarVelocidad():
 	$Player.aumentar_velocidad(100)
-	$MenuMejoras/TextureRect.position = $Afuera.position
+	$MenuMejoras.visible = false  
+	#$MenuMejoras/TextureRect.position = $Afuera.position
 	$MenuMejoras.pausar()
 
 func aumentarVida():
 	$Player.aumentar_vida(100)
-	$MenuMejoras/TextureRect.position = $Afuera.position
+	$MenuMejoras.visible = false 
+	#$MenuMejoras/TextureRect.position = $Afuera.position
 	$MenuMejoras.pausar()
 
 func mate():
 	var timerMate = $Timers/MateTimer
 	timerMate.start()
-	$MenuMejoras/TextureRect.position = $Afuera.position
+	$MenuMejoras.visible = false
+	#$MenuMejoras/TextureRect.position = $Afuera.position
 	$MenuMejoras.pausar()
 	
 func _on_mate_timer_timeout():

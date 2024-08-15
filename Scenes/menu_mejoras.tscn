@@ -47,10 +47,17 @@ process_mode = 2
 script = ExtResource("1_w74k2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -746.0
-offset_top = 251.0
-offset_right = -396.0
-offset_bottom = 531.0
+anchors_preset = -1
+anchor_left = 0.54
+anchor_top = 0.547
+anchor_right = 0.54
+anchor_bottom = 0.547
+offset_left = -226.2
+offset_top = -173.84
+offset_right = 123.8
+offset_bottom = 106.16
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.29136, 1.24349)
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -128,15 +135,12 @@ text = "Mate"
 
 [node name="Marker1" type="Marker2D" parent="TextureRect"]
 position = Vector2(74.3402, 31.3633)
-scale = Vector2(1, 1)
 
 [node name="Marker2" type="Marker2D" parent="TextureRect"]
 position = Vector2(75.8889, 110.978)
-scale = Vector2(1, 1)
 
 [node name="Marker3" type="Marker2D" parent="TextureRect"]
 position = Vector2(75.8889, 194.614)
-scale = Vector2(1, 1)
 
 [connection signal="button_up" from="TextureRect/MasDaño" to="." method="_on_mas_daño_button_up"]
 [connection signal="button_up" from="TextureRect/MasVelocidad" to="." method="_on_mas_velocidad_button_up"]
