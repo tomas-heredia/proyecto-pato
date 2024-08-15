@@ -37,9 +37,10 @@ func _on_area_2d_area_entered(objeto):
 		
 		objeto.impacto()
 	elif objeto.is_in_group("proyectilArea"):
-		
+		print("llegadaño")
 		if objeto.dañar:
 			vida -= objeto.daño
+			
 	elif objeto.is_in_group("antiVirus"):
 		vida = 0
 	

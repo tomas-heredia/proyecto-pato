@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 var SPEED = 200
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	$Colision.connect("Impacto",impacto)
 	$Area/CollisionShape2D.disabled = true
 	$Area.visible = false 
@@ -27,7 +29,11 @@ func _on_timer_timeout():
 func _on_daño_timer_timeout():
 	print("llega")
 	$Area/CollisionShape2D.disabled = false
+	$tikTimer.start()
 	
+
+
+
+
+func _on_tik_timer_timeout():
 	$Area/CollisionShape2D.disabled = true
-
-

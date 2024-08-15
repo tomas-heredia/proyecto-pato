@@ -37,7 +37,7 @@ radius = 38.3275
 scale = Vector2(0.281943, 0.241601)
 script = ExtResource("1_3h4w5")
 
-[node name="Area" type="Area2D" parent="."]
+[node name="Area" type="Area2D" parent="." groups=["proyectilArea"]]
 script = ExtResource("2_xnoju")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area" groups=["proyectilArea"]]
@@ -72,5 +72,9 @@ wait_time = 3.0
 
 [node name="DañoTimer" type="Timer" parent="."]
 
+[node name="tikTimer" type="Timer" parent="."]
+wait_time = 0.254
+
 [connection signal="timeout" from="AreaTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DañoTimer" to="." method="_on_daño_timer_timeout"]
+[connection signal="timeout" from="tikTimer" to="." method="_on_tik_timer_timeout"]
