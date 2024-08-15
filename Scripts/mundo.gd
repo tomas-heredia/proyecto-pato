@@ -11,6 +11,11 @@ var numeroOleada
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	print("Sistema operativo: ", OS.get_name())
+	print("Versión del sistema operativo: ", OS.get_version())
+	print("Número de núcleos del CPU: ", OS.get_processor_name())
+	print("Memoria RAM total: ", OS.get_static_memory_usage()  / 1024, " MB")
 	Guardado.load_game()
 	estadoOleada = 0
 	maxOleada = 10
