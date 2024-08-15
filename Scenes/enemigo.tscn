@@ -32,7 +32,6 @@ animations = [{
 [node name="Enemigo" type="CharacterBody2D"]
 show_behind_parent = true
 visibility_layer = 2
-z_index = 1
 script = ExtResource("1_li1jx")
 experiencia = ExtResource("2_l0mm8")
 

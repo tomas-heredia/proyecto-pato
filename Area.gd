@@ -1,7 +1,7 @@
 extends Area2D
 
 var dañar: bool
-var daño = 100
+var daño = 300
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dañar = true
