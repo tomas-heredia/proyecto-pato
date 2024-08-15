@@ -13,14 +13,32 @@ var vida
 var experiencia = 0
 var siguienteNivel = 100
 var nivel = 1
+
+var multVida 
+var multDaño
+var multVelocidad
+
 signal Muerte                                  
 signal subirNivel
 
 func _ready():
-	vidaTotal = Guardado.game_data["vida"]
+	var numero = float(OS.get_memory_info().physical) /(10**10) #obtengo la memoria 
+	var decimales = 1
+	multVida = round(numero * pow(10, decimales)) / pow(10, decimales)
+	if multVida >= 3: # aqui estoy limitando el multiplicador de memoria
+		multVida = 3
+	vidaTotal = Guardado.game_data["vida"] * multVida
 	vida = vidaTotal
 	$ProgressBar.max_value = vidaTotal
 	$ProgressBar.value = vida
+	
+	multVelocidad = float(get_cpu_speed())
+	if multVelocidad>= 3:
+		multVelocidad = 3
+	SPEED = SPEED*multVelocidad
+	
+	
+	
 
 func _physics_process(delta):
 	
@@ -112,3 +130,12 @@ func aumentar_daño(valor):
 
 func aumentar_velocidad(valor):
 	SPEED += valor
+
+func get_cpu_speed():
+	var processor_name = OS.get_processor_name()
+	var parts = processor_name.split(" ")  # Divide la cadena en partes separadas por espacios
+	for part in parts:
+		if part.find("GHz") != -1 or part.find("MHz") != -1:  # Verifica si la parte contiene "GHz" o "MHz"
+			part = part.replace("GHz", "") #quito el GHz para regresar un float
+			return part  # Devuelve la parte que contiene la velocidad del procesador
+	return "No se pudo determinar la velocidad"

@@ -47,17 +47,10 @@ process_mode = 2
 script = ExtResource("1_w74k2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = -1
-anchor_left = 0.54
-anchor_top = 0.547
-anchor_right = 0.54
-anchor_bottom = 0.547
-offset_left = -226.2
-offset_top = -173.84
-offset_right = 123.8
-offset_bottom = 106.16
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -746.0
+offset_top = 251.0
+offset_right = -396.0
+offset_bottom = 531.0
 scale = Vector2(1.29136, 1.24349)
 size_flags_horizontal = 4
 size_flags_vertical = 4

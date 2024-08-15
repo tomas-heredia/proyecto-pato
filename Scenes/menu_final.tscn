@@ -31,17 +31,10 @@ texture = ExtResource("5_kxjsb")
 script = ExtResource("1_pn80q")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = -1
-anchor_left = 0.522
-anchor_top = 0.518
-anchor_right = 0.522
-anchor_bottom = 0.518
-offset_left = -222.16
-offset_top = -146.96
-offset_right = 165.84
-offset_bottom = 121.04
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -461.0
+offset_top = 25.0
+offset_right = -73.0
+offset_bottom = 293.0
 scale = Vector2(1.1468, 1.09838)
 theme = SubResource("Theme_1ki14")
 texture = ExtResource("2_udtgu")
