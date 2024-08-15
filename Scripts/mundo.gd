@@ -10,28 +10,11 @@ var maxOleada: int
 var numeroOleada
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
-func get_cpu_speed():
-	var processor_name = OS.get_processor_name()
-	var parts = processor_name.split(" ")  # Divide la cadena en partes separadas por espacios
-	for part in parts:
-		if part.find("GHz") != -1 or part.find("MHz") != -1:  # Verifica si la parte contiene "GHz" o "MHz"
-			var velocidad = part
-			velocidad = velocidad.replace("GHz", "")
-			return velocidad  # Devuelve la parte que contiene la velocidad del procesador
-	return "No se pudo determinar la velocidad"
+
 
 func _ready():
-	
-	print("Sistema operativo: ", OS.get_name())
-	var velocidad = get_cpu_speed()
-	
-	print("Versión del sistema operativo: ", velocidad)
-	var numero = float(OS.get_memory_info().physical) /(10**10)
-	var decimales = 1
-	var recortado = round(numero * pow(10, decimales)) / pow(10, decimales)
-	print("Memoria: ", recortado)
-	print("Memoria RAM total: ",  OS.get_static_memory_usage(), " MB")
 	Guardado.load_game()
+	
 	estadoOleada = 0
 	maxOleada = 10
 	numeroOleada = 0
