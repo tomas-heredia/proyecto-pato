@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6p31g88ddhd5"]
 
-[ext_resource type="Script" path="res://Scenes/experiencia.gd" id="1_bdsru"]
+[ext_resource type="Script" path="res://Scripts/experiencia.gd" id="1_li6gc"]
 [ext_resource type="Texture2D" uid="uid://c2n2ar6o5hlkr" path="res://Assets/Sprites/exp/exp.png" id="1_p0olh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7emf3"]
@@ -21,7 +21,7 @@ animations = [{
 show_behind_parent = true
 visibility_layer = 2
 scale = Vector2(0.3, 0.3)
-script = ExtResource("1_bdsru")
+script = ExtResource("1_li6gc")
 metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["Exp"]]

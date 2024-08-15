@@ -1,10 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c5iex2qhx53uq"]
 
 [ext_resource type="Script" path="res://Mate.gd" id="1_3h4w5"]
-[ext_resource type="Texture2D" uid="uid://du7g5ux7ey8l8" path="res://icon.svg" id="2_4md6v"]
-[ext_resource type="Script" path="res://Area.gd" id="2_xnoju"]
+[ext_resource type="Script" path="res://Scripts/MateArea.gd" id="2_c520u"]
 [ext_resource type="Texture2D" uid="uid://22wnqgayx5px" path="res://Assets/Sprites/Mate/CharcoMate.png" id="3_xe615"]
-[ext_resource type="Script" path="res://Colision.gd" id="4_bb0ga"]
+[ext_resource type="Texture2D" uid="uid://wkvb5rl1pbe5" path="res://Assets/Sprites/Mate/mate.png" id="4_i3p0o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sduwl"]
 radius = 127.577
@@ -30,6 +29,23 @@ _data = {
 "rotation": SubResource("Animation_v51qt")
 }
 
+[sub_resource type="GDScript" id="GDScript_wiy0y"]
+script/source = "extends Area2D
+signal Impacto
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+
+func impacto():
+	$CollisionShape2D.disabled = true
+	
+	emit_signal(\"Impacto\")
+
+"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ahqnj"]
 radius = 38.3275
 
@@ -38,7 +54,7 @@ scale = Vector2(0.281943, 0.241601)
 script = ExtResource("1_3h4w5")
 
 [node name="Area" type="Area2D" parent="." groups=["proyectilArea"]]
-script = ExtResource("2_xnoju")
+script = ExtResource("2_c520u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area" groups=["proyectilArea"]]
 shape = SubResource("CircleShape2D_sduwl")
@@ -52,9 +68,10 @@ scale = Vector2(5.09855, 5.34628)
 texture = ExtResource("3_xe615")
 
 [node name="MateSprite" type="Sprite2D" parent="."]
+texture_filter = 1
 rotation = 2.29777
-scale = Vector2(0.514286, 0.469388)
-texture = ExtResource("2_4md6v")
+scale = Vector2(2.61174, 2.60759)
+texture = ExtResource("4_i3p0o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -62,7 +79,7 @@ libraries = {
 }
 
 [node name="Colision" type="Area2D" parent="." groups=["colision"]]
-script = ExtResource("4_bb0ga")
+script = SubResource("GDScript_wiy0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colision" groups=["colision"]]
 shape = SubResource("CircleShape2D_ahqnj")

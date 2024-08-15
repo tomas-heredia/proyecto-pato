@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://oj74cg0xomd0"]
 
-[ext_resource type="Script" path="res://Scenes/menu_dinal.gd" id="1_pn80q"]
+[ext_resource type="Script" path="res://Scripts/menu_dinal.gd" id="1_8nbdj"]
 [ext_resource type="Texture2D" uid="uid://cbf6ko0t2tws1" path="res://Assets/Sprites/Menu/Sprite-MenuFinal.png" id="2_udtgu"]
 [ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_b4dyu"]
 [ext_resource type="Texture2D" uid="uid://dg1vmuxspkm2l" path="res://Assets/Sprites/Menu/Sprite-MenuBoton.png" id="4_qeef2"]
@@ -28,7 +28,7 @@ texture = ExtResource("4_qeef2")
 texture = ExtResource("5_kxjsb")
 
 [node name="menu_final" type="CanvasLayer"]
-script = ExtResource("1_pn80q")
+script = ExtResource("1_8nbdj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8

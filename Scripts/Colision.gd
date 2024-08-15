@@ -9,6 +9,6 @@ func _ready():
 
 func impacto():
 	$CollisionShape2D.disabled = true
-	print("llega")
+	
 	emit_signal("Impacto")
 
