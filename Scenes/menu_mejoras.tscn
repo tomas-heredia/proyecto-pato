@@ -126,6 +126,14 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_xd74d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3xb00")
 text = "Mate"
 
+[node name="AntiVirus" type="Button" parent="TextureRect/Label"]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 195.0
+offset_right = 437.0
+offset_bottom = 254.0
+text = "Anti Virus"
+
 [node name="Marker1" type="Marker2D" parent="TextureRect"]
 position = Vector2(74.3402, 31.3633)
 scale = Vector2(1, 1)
@@ -138,7 +146,15 @@ scale = Vector2(1, 1)
 position = Vector2(75.8889, 194.614)
 scale = Vector2(1, 1)
 
+<<<<<<< HEAD
 [connection signal="button_up" from="TextureRect/MasDaño" to="." method="_on_mas_daño_button_up"]
 [connection signal="button_up" from="TextureRect/MasVelocidad" to="." method="_on_mas_velocidad_button_up"]
 [connection signal="button_up" from="TextureRect/MasVida" to="." method="_on_mas_vida_button_up"]
 [connection signal="button_up" from="TextureRect/Mate" to="." method="_on_mate_button_up"]
+=======
+[connection signal="button_up" from="TextureRect/Label/MasDaño" to="." method="_on_mas_daño_button_up"]
+[connection signal="button_up" from="TextureRect/Label/MasVelocidad" to="." method="_on_mas_velocidad_button_up"]
+[connection signal="button_up" from="TextureRect/Label/MasVida" to="." method="_on_mas_vida_button_up"]
+[connection signal="button_up" from="TextureRect/Label/Mate" to="." method="_on_mate_button_up"]
+[connection signal="button_up" from="TextureRect/Label/AntiVirus" to="." method="_on_anti_virus_button_up"]
+>>>>>>> main

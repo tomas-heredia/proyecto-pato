@@ -2,7 +2,7 @@ extends Node2D
 @export var Zombie : PackedScene
 @export var menuNivel : PackedScene
 @export var Mate : PackedScene
-
+@export var Antivirus : PackedScene
 
 var seguirZombie = null
 var estadoOleada: float
@@ -25,6 +25,7 @@ func _ready():
 	$MenuMejoras.connect("aumentarVelocidad",aumentarVelocidad)
 	$MenuMejoras.connect("aumentarVida",aumentarVida)
 	$MenuMejoras.connect("mate", mate)
+	$MenuMejoras.connect("antivirus", antivirus)
 	
 	$Enemigo.connect("muerto",aumentarOleada)
 	
@@ -91,13 +92,29 @@ func mate():
 	timerMate.start()
 	$MenuMejoras/TextureRect.position = $Afuera.position
 	$MenuMejoras.pausar()
+
+func antivirus():
 	
+	$MenuMejoras/TextureRect.position = $Afuera.position
+	$MenuMejoras.pausar()
+
+func CrearAntiVirus():
+	var antiVirus = Antivirus.instantiate()
+	add_child(antiVirus)
+	antiVirus.position = $Player.position
+	seguirZombie = get_closest_object(get_tree().get_nodes_in_group("Enemigos"))
+	
+	antiVirus.velocity = antiVirus.global_position.direction_to(seguirZombie.global_position) * antiVirus.SPEED
+
+
+
 func _on_mate_timer_timeout():
 	var mate = Mate.instantiate()
 	add_child(mate)
 	mate.position = $Player.position
 	seguirZombie = get_closest_object(get_tree().get_nodes_in_group("Enemigos"))
-	print(seguirZombie)
+	mate.visibility_layer = 2
+	mate.show_behind_parent = true
 	mate.velocity = mate.global_position.direction_to(seguirZombie.global_position) * mate.SPEED
 
 
