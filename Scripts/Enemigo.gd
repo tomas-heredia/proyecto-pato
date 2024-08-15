@@ -40,6 +40,10 @@ func _on_area_2d_area_entered(objeto):
 		
 		if objeto.dañar:
 			vida -= objeto.daño
+	elif objeto.is_in_group("antiVirus"):
+		vida = 0
+	
+	
 	if vida <= 0:
 		var gema = experiencia.instantiate()
 		gema.position = self.position

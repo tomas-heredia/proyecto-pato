@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5iex2qhx53uq"]
+[gd_scene load_steps=10 format=3 uid="uid://d4bgxgynmcb4h"]
 
-[ext_resource type="Script" path="res://Mate.gd" id="1_3h4w5"]
+[ext_resource type="Script" path="res://Scripts/Mate.gd" id="1_vut40"]
 [ext_resource type="Texture2D" uid="uid://du7g5ux7ey8l8" path="res://icon.svg" id="2_4md6v"]
-[ext_resource type="Script" path="res://Area.gd" id="2_xnoju"]
-[ext_resource type="Texture2D" uid="uid://22wnqgayx5px" path="res://Assets/Sprites/Mate/CharcoMate.png" id="3_xe615"]
-[ext_resource type="Script" path="res://Colision.gd" id="4_bb0ga"]
+[ext_resource type="Script" path="res://Scripts/Area.gd" id="2_sdy2y"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/mate/CharcoMate.png" id="3_eo471"]
+[ext_resource type="Script" path="res://Scripts/Colision.gd" id="5_e1l0j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sduwl"]
 radius = 127.577
@@ -34,25 +34,27 @@ _data = {
 radius = 38.3275
 
 [node name="Mate" type="CharacterBody2D"]
+show_behind_parent = true
 scale = Vector2(0.281943, 0.241601)
-script = ExtResource("1_3h4w5")
+script = ExtResource("1_vut40")
 
-[node name="Area" type="Area2D" parent="."]
-script = ExtResource("2_xnoju")
+[node name="Area" type="Area2D" parent="." groups=["proyectilArea"]]
+show_behind_parent = true
+script = ExtResource("2_sdy2y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" groups=["proyectilArea"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+show_behind_parent = true
 shape = SubResource("CircleShape2D_sduwl")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Area"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-1.77341, -4.13906)
-scale = Vector2(5.09855, 5.34628)
-texture = ExtResource("3_xe615")
+scale = Vector2(5.43076, 5.63648)
+texture = ExtResource("3_eo471")
 
 [node name="MateSprite" type="Sprite2D" parent="."]
-rotation = 2.29777
+show_behind_parent = true
 scale = Vector2(0.514286, 0.469388)
 texture = ExtResource("2_4md6v")
 
@@ -62,9 +64,11 @@ libraries = {
 }
 
 [node name="Colision" type="Area2D" parent="." groups=["colision"]]
-script = ExtResource("4_bb0ga")
+show_behind_parent = true
+script = ExtResource("5_e1l0j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colision" groups=["colision"]]
+show_behind_parent = true
 shape = SubResource("CircleShape2D_ahqnj")
 
 [node name="AreaTimer" type="Timer" parent="."]
@@ -72,5 +76,9 @@ wait_time = 3.0
 
 [node name="DañoTimer" type="Timer" parent="."]
 
+[node name="restartTimer" type="Timer" parent="."]
+wait_time = 0.3
+
 [connection signal="timeout" from="AreaTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DañoTimer" to="." method="_on_daño_timer_timeout"]
+[connection signal="timeout" from="restartTimer" to="." method="_on_restart_timer_timeout"]
