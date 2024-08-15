@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Proyecto Pato Programador"
-run/main_scene="res://Scenes/mundo.tscn"
+run/main_scene="res://Scenes/Menu_inicio.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 

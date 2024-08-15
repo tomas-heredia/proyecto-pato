@@ -13,7 +13,7 @@ var rng = RandomNumberGenerator.new()
 
 
 func _ready():
-	Guardado.load_game()
+
 	
 	estadoOleada = 0
 	maxOleada = 10

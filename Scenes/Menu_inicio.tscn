@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://cbri8igok8yy8"]
+
+[ext_resource type="Script" path="res://Scenes/Menu_inicio.gd" id="1_ykwww"]
+[ext_resource type="Texture2D" uid="uid://csb2b0rijfdep" path="res://Assets/Sprites/Menu/Sprite-MenuMejoras2.png" id="2_gfqe1"]
+[ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_be6in"]
+[ext_resource type="Texture2D" uid="uid://dg1vmuxspkm2l" path="res://Assets/Sprites/Menu/Sprite-MenuBoton.png" id="4_l6uaa"]
+[ext_resource type="Texture2D" uid="uid://dudg32n0u8yxh" path="res://Assets/Sprites/Menu/Sprite-MenuBotonPressed.png" id="5_ikqvv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4stw"]
+texture = ExtResource("4_l6uaa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncob1"]
+texture = ExtResource("4_l6uaa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07kmg"]
+texture = ExtResource("5_ikqvv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e17m2"]
+texture = ExtResource("4_l6uaa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swdkf"]
+texture = ExtResource("5_ikqvv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6pk2o"]
+texture = ExtResource("5_ikqvv")
+
+[node name="Menu_inicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ykwww")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.26765, 3.60332)
+texture = ExtResource("2_gfqe1")
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 19.0
+offset_right = 116.0
+offset_bottom = 42.0
+scale = Vector2(1.83165, 0.877056)
+text = "Duck Overflow"
+
+[node name="Iniciar" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 45.0
+offset_right = 194.0
+offset_bottom = 93.0
+scale = Vector2(1.22243, 0.464165)
+theme_override_fonts/font = ExtResource("3_be6in")
+theme_override_styles/normal = SubResource("StyleBoxTexture_q4stw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ncob1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07kmg")
+text = "Iniciar"
+clip_text = true
+
+[node name="Tienda" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 84.0
+offset_right = 84.0
+offset_bottom = 92.0
+scale = Vector2(3.55285, 1.16332)
+theme_override_fonts/font = ExtResource("3_be6in")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e17m2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_swdkf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6pk2o")
+text = "Tienda"
+
+[node name="Creditos" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 107.0
+offset_right = 84.0
+offset_bottom = 115.0
+scale = Vector2(1.20567, 0.413624)
+text = "Creditos"
+
+[node name="Salir" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 129.0
+offset_right = 84.0
+offset_bottom = 137.0
+scale = Vector2(1.19898, 0.48742)
+text = "Salir"
+
+[connection signal="button_up" from="CanvasLayer/TextureRect/Iniciar" to="." method="_on_iniciar_button_up"]
+[connection signal="button_up" from="CanvasLayer/TextureRect/Tienda" to="." method="_on_tienda_button_up"]
