@@ -16,4 +16,8 @@ func _on_iniciar_button_up():
 
 
 func _on_tienda_button_up():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/tienda.tscn")
+
+
+func _on_salir_pressed():
+	get_tree().quit()

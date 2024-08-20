@@ -42,7 +42,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
+	$Player/Interfaces/Monedas.text = "Monedas: " + str(Guardado.game_data.monedas)
 	$Player/Label.text = str($Player.experiencia)
 
 func crear_zombie():

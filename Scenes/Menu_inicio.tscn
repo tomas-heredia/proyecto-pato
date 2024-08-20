@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cbri8igok8yy8"]
 
-[ext_resource type="Script" path="res://Scenes/Menu_inicio.gd" id="1_ykwww"]
+[ext_resource type="Script" path="res://Scripts/Menu_inicio.gd" id="1_ykwww"]
 [ext_resource type="Texture2D" uid="uid://csb2b0rijfdep" path="res://Assets/Sprites/Menu/Sprite-MenuMejoras2.png" id="2_gfqe1"]
 [ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_be6in"]
 [ext_resource type="Texture2D" uid="uid://dg1vmuxspkm2l" path="res://Assets/Sprites/Menu/Sprite-MenuBoton.png" id="4_l6uaa"]
@@ -97,3 +97,4 @@ text = "Salir"
 
 [connection signal="button_up" from="CanvasLayer/TextureRect/Iniciar" to="." method="_on_iniciar_button_up"]
 [connection signal="button_up" from="CanvasLayer/TextureRect/Tienda" to="." method="_on_tienda_button_up"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Salir" to="." method="_on_salir_pressed"]

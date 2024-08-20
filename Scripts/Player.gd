@@ -109,15 +109,17 @@ func _on_area_2d_area_entered(area):
 			$Arma/TiempoDisparo.stop()
 			
 			emit_signal("Muerte")
-	else:
-		if area.is_in_group("Exp"):
-			experiencia = experiencia + 100
-			area.queue_free()
-			if experiencia >= siguienteNivel:
-				experiencia -= siguienteNivel
-				siguienteNivel += 500
-				nivel += 1
-				emit_signal("subirNivel")
+	elif area.is_in_group("Exp"):
+		experiencia = experiencia + 100
+		area.queue_free()
+		if experiencia >= siguienteNivel:
+			experiencia -= siguienteNivel
+			siguienteNivel += 500
+			nivel += 1
+			emit_signal("subirNivel")
+	elif  area.is_in_group("Moneda"):
+		Guardado.game_data.monedas += 1
+		area.queue_free()
 
 func aumentar_vida(valor):
 	vidaTotal +=  valor

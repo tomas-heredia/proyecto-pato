@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt866o3e4gplu"]
+[gd_scene load_steps=3 format=3 uid="uid://dt866o3e4gplu"]
 
 [ext_resource type="Texture2D" uid="uid://csb2b0rijfdep" path="res://Assets/Sprites/Menu/Sprite-MenuMejoras2.png" id="1_7ggby"]
+[ext_resource type="Script" path="res://Scripts/tienda.gd" id="1_nxcia"]
 
 [node name="Tienda" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nxcia")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -17,3 +19,55 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(4.27087, 3.59667)
 texture = ExtResource("1_7ggby")
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 122.457
+offset_top = 16.4041
+offset_right = 180.457
+offset_bottom = 39.4041
+text = "TIENDA"
+
+[node name="Monedas" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 23.0
+scale = Vector2(0.772956, 0.816289)
+text = "Monedas: "
+
+[node name="Vida" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 50.341
+offset_top = 56.1631
+offset_right = 92.341
+offset_bottom = 87.1631
+text = "Vida"
+
+[node name="Daño" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 125.735
+offset_top = 56.1631
+offset_right = 158.735
+offset_bottom = 72.1631
+text = "Daño"
+
+[node name="Velocidad" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 201.832
+offset_top = 56.1631
+offset_right = 234.832
+offset_bottom = 72.1631
+text = "Velocidad"
+
+[node name="regresar" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 50.341
+offset_top = 125.95
+offset_right = 83.341
+offset_bottom = 141.95
+text = "Regresar"
+
+[connection signal="pressed" from="CanvasLayer/TextureRect/Vida" to="." method="_on_vida_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Daño" to="." method="_on_daño_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Velocidad" to="." method="_on_velocidad_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/regresar" to="." method="_on_regresar_pressed"]

@@ -12,7 +12,7 @@ func _process(delta):
 	
 func pausar():
 	get_tree().paused = not get_tree().paused
-	
+	Guardado.save_game()
 
 
 func _on_salir_button_up():

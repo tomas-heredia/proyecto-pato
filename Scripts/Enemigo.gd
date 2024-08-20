@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 var vida : int
 @export var experiencia : PackedScene
+@export var moneda : PackedScene
 var daño = 100
 var SPEED = 20.0
 var player = null
 
 signal muerto
 func _ready():
-	
+	randomize()
 	vida = 300
 
 func _physics_process(delta):
@@ -46,11 +47,7 @@ func _on_area_2d_area_entered(objeto):
 	
 	
 	if vida <= 0:
-		var gema = experiencia.instantiate()
-		gema.position = self.position
-		get_tree().call_group("mundo", "add_child",gema)
-		emit_signal("muerto")
-		queue_free()
+		muerte()
 	
 func animaciones():
 	if velocity == Vector2.ZERO:
@@ -67,5 +64,16 @@ func animaciones():
 				$AnimatedSprite2D.flip_h = true
 				
 
-
+func muerte():
+	var rand = randi_range(0,1)
+	if rand :
+		var gema = experiencia.instantiate()
+		gema.position = self.position
+		get_tree().call_group("mundo", "add_child",gema)
+	else:
+		var coin = moneda.instantiate()
+		coin.position = self.position
+		get_tree().call_group("mundo", "add_child",coin)
+	emit_signal("muerto")
+	queue_free()
 

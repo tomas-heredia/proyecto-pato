@@ -5,7 +5,13 @@ var save_path = "user://save_game.dat"
 var game_data : Dictionary= {
 	"vida" : 400,
 	"daño" : 100,
-	"velocidad" : 200
+	"velocidad" : 200,
+	"monedas": 0,
+	"mejoras" : {
+		"vida": 1,
+		"daño": 1,
+		"velocidad": 1
+	}
 }
 func save_game() -> void:
 	var save_file = FileAccess.open(save_path,FileAccess.WRITE)
