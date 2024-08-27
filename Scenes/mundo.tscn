@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=23 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Texture2D" uid="uid://c30auoq8k43x7" path="res://Assets/Backgrounds/Tilesets/TilesetFloor.png" id="1_cy0r8"]
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dpaqh1pxbc4mn" path="res://Scenes/menu_mejoras.tscn" id="10_fcit1"]
 [ext_resource type="PackedScene" uid="uid://oj74cg0xomd0" path="res://Scenes/menu_final.tscn" id="11_37x06"]
 [ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="12_c82ro"]
+[ext_resource type="PackedScene" uid="uid://cnriaqypeaine" path="res://Scenes/menu_pausa.tscn" id="14_75huh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q110a"]
 texture = ExtResource("1_cy0r8")
@@ -1227,6 +1228,9 @@ offset_left = -277.0
 offset_top = -175.0
 offset_right = -237.0
 offset_bottom = -152.0
+
+[node name="Menu_pausa" parent="." instance=ExtResource("14_75huh")]
+visible = false
 
 [connection signal="timeout" from="Timers/DOSTimer" to="." method="_on_dos_timer_timeout"]
 [connection signal="timeout" from="Timers/ZombieTimer" to="." method="_on_zombie_timer_timeout"]
