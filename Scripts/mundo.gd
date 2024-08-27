@@ -179,6 +179,8 @@ func _on_dos_timer_timeout():
 	if numeroOleada == 3:
 			victira()
 	else:
+		Globales.VidaZombie += 200
+		Globales.DañoZombie += 100
 		$Timers/ZombieTimer.start()
 	
 

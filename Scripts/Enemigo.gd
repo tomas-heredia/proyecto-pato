@@ -3,15 +3,16 @@ extends CharacterBody2D
 var vida : int
 @export var experiencia : PackedScene
 @export var moneda : PackedScene
-var daño = 100
+@export var life : PackedScene
+var daño : int
 var SPEED = 20.0
 var player = null
 
 signal muerto
 func _ready():
 	randomize()
-	vida = 300
-
+	vida = Globales.VidaZombie
+	daño = Globales.DañoZombie
 func _physics_process(delta):
 	
 	follow()
@@ -65,15 +66,19 @@ func animaciones():
 				
 
 func muerte():
-	var rand = randi_range(0,1)
-	if rand :
+	var rand = randi_range(0,3)
+	if rand == 0:
 		var gema = experiencia.instantiate()
 		gema.position = self.position
 		get_tree().call_group("mundo", "add_child",gema)
-	else:
+	elif rand == 1:
 		var coin = moneda.instantiate()
 		coin.position = self.position
 		get_tree().call_group("mundo", "add_child",coin)
+	elif rand == 3:
+		var hp = life.instantiate()
+		hp.position = self.position
+		get_tree().call_group("mundo", "add_child",hp)
 	emit_signal("muerto")
 	queue_free()
 

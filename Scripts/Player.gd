@@ -120,6 +120,11 @@ func _on_area_2d_area_entered(area):
 	elif  area.is_in_group("Moneda"):
 		Guardado.game_data.monedas += 1
 		area.queue_free()
+	elif area.is_in_group("Vida"):
+		if vida <= vidaTotal-100:
+			vida += 100
+			$ProgressBar.value = vida
+		area.queue_free()
 
 func aumentar_vida(valor):
 	vidaTotal +=  valor
