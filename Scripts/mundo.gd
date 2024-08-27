@@ -4,6 +4,7 @@ extends Node2D
 @export var Mate : PackedScene
 @export var Antivirus : PackedScene
 
+var enemigosMuertos = 0
 var seguirZombie = null
 var estadoOleada: float
 var maxOleada: int
@@ -47,6 +48,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$Player/Interfaces/contEnemigos.text = "enemigos: " +str(enemigosMuertos)
 	$Player/Interfaces/Monedas.text = "Monedas: " + str(Guardado.game_data.monedas)
 	$Player/Label.text = str($Player.experiencia)
 	if Input.is_action_just_pressed("Pausa"):
@@ -77,6 +79,7 @@ func reanudar():
 func muerte():
 	$Timers/ZombieTimer.stop()
 	$menu_final.visible = true
+	Guardado.game_data["enemigosMuertos"] += enemigosMuertos
 	#$menu_final/TextureRect.position = $Player.position
 	$menu_final.muerto(numeroOleada)
 	$menu_final.pausar()
@@ -85,6 +88,7 @@ func victira():
 	$Timers/ZombieTimer.stop()
 	$menu_final.visible = true
 	#$menu_final/TextureRect.position = $Player.position
+	Guardado.game_data["enemigosMuertos"] += enemigosMuertos
 	$menu_final.ganar(numeroOleada)
 	$menu_final.pausar()
 	
@@ -154,6 +158,8 @@ func _on_mate_timer_timeout():
 
 
 func aumentarOleada():
+	enemigosMuertos += 1
+	
 	estadoOleada = 1 + estadoOleada
 	$Player/Interfaces/ProgressBar.update((estadoOleada/maxOleada)*10)
 	print((estadoOleada/maxOleada)*100)

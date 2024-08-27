@@ -1221,7 +1221,15 @@ offset_left = 149.0
 offset_top = -128.0
 offset_right = 204.0
 offset_bottom = -105.0
-text = "Oleada"
+text = "Monedas"
+
+[node name="contEnemigos" type="Label" parent="Player/Interfaces"]
+layout_mode = 0
+offset_left = -211.0
+offset_top = -126.0
+offset_right = -136.0
+offset_bottom = -103.0
+text = "enemigos"
 
 [node name="Label" type="Label" parent="Player"]
 offset_left = -277.0
