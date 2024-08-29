@@ -11,7 +11,8 @@ var game_data : Dictionary= {
 		"vida": 1,
 		"daño": 1,
 		"velocidad": 1
-	}
+	},
+	"enemigosMuertos": 0
 }
 func save_game() -> void:
 	var save_file = FileAccess.open(save_path,FileAccess.WRITE)
