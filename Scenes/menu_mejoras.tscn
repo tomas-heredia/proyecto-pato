@@ -47,6 +47,7 @@ process_mode = 2
 script = ExtResource("1_w74k2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -64,6 +65,7 @@ size_flags_vertical = 4
 texture = ExtResource("2_c3h1v")
 
 [node name="Label" type="Label" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.21
@@ -78,6 +80,7 @@ theme_override_font_sizes/font_size = 35
 text = "Mejoras "
 
 [node name="MasDaño" type="Button" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 1
 offset_left = 99.8947
 offset_top = 71.5728
@@ -92,6 +95,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_bsrg4")
 text = "Mas Daño"
 
 [node name="MasVelocidad" type="Button" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 100.669
 offset_top = 156.013
@@ -106,6 +110,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_e1kow")
 text = "Mas Velocidad"
 
 [node name="MasVida" type="Button" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 99.8947
 offset_top = 114.195
@@ -120,6 +125,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_brgg5")
 text = "Mas Vida"
 
 [node name="Mate" type="Button" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 101.443
 offset_top = 197.83

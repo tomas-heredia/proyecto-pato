@@ -1,28 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbri8igok8yy8"]
+[gd_scene load_steps=16 format=3 uid="uid://6lvjj01w1mrj"]
 
 [ext_resource type="Script" path="res://Scripts/Menu_inicio.gd" id="1_ykwww"]
-[ext_resource type="Texture2D" uid="uid://csb2b0rijfdep" path="res://Assets/Sprites/Menu/Sprite-MenuMejoras2.png" id="2_gfqe1"]
+[ext_resource type="Texture2D" uid="uid://0m8fp37poh30" path="res://Assets/Sprites/Menu/MenuInicio.png" id="2_srlfe"]
 [ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_be6in"]
-[ext_resource type="Texture2D" uid="uid://dg1vmuxspkm2l" path="res://Assets/Sprites/Menu/Sprite-MenuBoton.png" id="4_l6uaa"]
-[ext_resource type="Texture2D" uid="uid://dudg32n0u8yxh" path="res://Assets/Sprites/Menu/Sprite-MenuBotonPressed.png" id="5_ikqvv"]
+[ext_resource type="Texture2D" uid="uid://b1ccuxppjtbmu" path="res://Assets/Sprites/Menu/Sprite-MenuInicioBoton.png" id="4_bxcy6"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4stw"]
-texture = ExtResource("4_l6uaa")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wq1qq"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncob1"]
-texture = ExtResource("4_l6uaa")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8y136"]
+texture = ExtResource("4_bxcy6")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07kmg"]
-texture = ExtResource("5_ikqvv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8q7lq"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e17m2"]
-texture = ExtResource("4_l6uaa")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knekq"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swdkf"]
-texture = ExtResource("5_ikqvv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tc6yx"]
+texture = ExtResource("4_bxcy6")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6pk2o"]
-texture = ExtResource("5_ikqvv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibh6n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2j23k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ufxk"]
+texture = ExtResource("4_bxcy6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tnd4y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qiri7"]
+texture = ExtResource("4_bxcy6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yp6hr"]
 
 [node name="Menu_inicio" type="Control"]
 layout_mode = 3
@@ -34,66 +41,115 @@ grow_vertical = 2
 script = ExtResource("1_ykwww")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(4.26765, 3.60332)
-texture = ExtResource("2_gfqe1")
-
-[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 19.0
-offset_right = 116.0
-offset_bottom = 42.0
-scale = Vector2(1.83165, 0.877056)
-text = "Duck Overflow"
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_srlfe")
 
 [node name="Iniciar" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 45.0
-offset_right = 194.0
-offset_bottom = 93.0
-scale = Vector2(1.22243, 0.464165)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.379
+anchor_right = 0.5
+anchor_bottom = 0.379
+offset_left = -204.0
+offset_top = -47.88
+offset_right = 196.0
+offset_bottom = 42.12
+theme_override_colors/font_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_hover_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/h_separation = 10
 theme_override_fonts/font = ExtResource("3_be6in")
-theme_override_styles/normal = SubResource("StyleBoxTexture_q4stw")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ncob1")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_07kmg")
-text = "Iniciar"
-clip_text = true
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_wq1qq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8y136")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8q7lq")
+text = "INICIAR"
 
 [node name="Tienda" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 84.0
-offset_right = 84.0
-offset_bottom = 92.0
-scale = Vector2(3.55285, 1.16332)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.512
+anchor_right = 0.493
+anchor_bottom = 0.512
+offset_left = -200.04
+offset_top = -44.64
+offset_right = 199.96
+offset_bottom = 45.36
+theme_override_colors/font_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_hover_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/h_separation = 10
 theme_override_fonts/font = ExtResource("3_be6in")
-theme_override_styles/normal = SubResource("StyleBoxTexture_e17m2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_swdkf")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6pk2o")
-text = "Tienda"
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_knekq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tc6yx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ibh6n")
+text = "TIENDA"
 
 [node name="Creditos" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 107.0
-offset_right = 84.0
-offset_bottom = 115.0
-scale = Vector2(1.20567, 0.413624)
-text = "Creditos"
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.497
+anchor_top = 0.649
+anchor_right = 0.497
+anchor_bottom = 0.649
+offset_left = -200.16
+offset_top = -45.28
+offset_right = 199.84
+offset_bottom = 44.72
+theme_override_colors/font_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_hover_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("3_be6in")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_2j23k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7ufxk")
+text = "CRÉDITOS"
 
 [node name="Salir" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 129.0
-offset_right = 84.0
-offset_bottom = 137.0
-scale = Vector2(1.19898, 0.48742)
-text = "Salir"
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.492
+anchor_top = 0.783
+anchor_right = 0.492
+anchor_bottom = 0.783
+offset_left = -199.76
+offset_top = -44.76
+offset_right = 200.24
+offset_bottom = 45.24
+theme_override_colors/font_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_hover_color = Color(1, 0.839216, 0.298039, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("3_be6in")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_tnd4y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qiri7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yp6hr")
+text = "SALIR"
 
 [connection signal="button_up" from="CanvasLayer/TextureRect/Iniciar" to="." method="_on_iniciar_button_up"]
 [connection signal="button_up" from="CanvasLayer/TextureRect/Tienda" to="." method="_on_tienda_button_up"]

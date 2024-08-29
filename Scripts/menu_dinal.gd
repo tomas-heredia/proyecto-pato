@@ -24,11 +24,12 @@ func _on_reiniciar_button_up():
 	get_tree().reload_current_scene()
 	
 func muerto(valor):
-	$TextureRect/Label.text = "Te han debugueado"
+	$TextureRect/Label.text = "Has sido debugueado"
 	Oleadas(valor)
 
 func ganar(valor):
 	$TextureRect/Label.text ="Los debugueaste"
+	$TextureRect.texture = preload("res://.godot/imported/Sprite-MenuGanador.png-2b650ce13ca2f40db07dda5cdcebc967.ctex")
 	Oleadas(valor)
 
 func Oleadas(valor):

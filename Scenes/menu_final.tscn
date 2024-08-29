@@ -31,6 +31,7 @@ texture = ExtResource("5_kxjsb")
 script = ExtResource("1_8nbdj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -47,6 +48,7 @@ theme = SubResource("Theme_1ki14")
 texture = ExtResource("2_udtgu")
 
 [node name="Label" type="Label" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 61.9114
 offset_top = 75.5658
@@ -59,6 +61,7 @@ text = "Te han debugueado"
 horizontal_alignment = 1
 
 [node name="Reiniciar" type="Button" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.043
@@ -76,6 +79,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_3awyx")
 text = "Reiniciar"
 
 [node name="Salir" type="Button" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 52.3195
 offset_top = 177.534
@@ -90,6 +94,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_i1rqs")
 text = "Salir"
 
 [node name="Oleadas" type="Label" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 131.232
 offset_top = 23.0

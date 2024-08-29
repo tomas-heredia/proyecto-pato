@@ -1,13 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt866o3e4gplu"]
+[gd_scene load_steps=21 format=3 uid="uid://dkt7uo3thdjep"]
 
-[ext_resource type="Texture2D" uid="uid://csb2b0rijfdep" path="res://Assets/Sprites/Menu/Sprite-MenuMejoras2.png" id="1_7ggby"]
 [ext_resource type="Script" path="res://Scripts/tienda.gd" id="1_nxcia"]
+[ext_resource type="Texture2D" uid="uid://010mc1lhsu56" path="res://Assets/Sprites/Tienda/Sprite-Tienda.png" id="2_hxoma"]
+[ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_trcrh"]
+[ext_resource type="Texture2D" uid="uid://djhsm2w3s7rlp" path="res://Assets/Sprites/Tienda/Sprite-Vida.png" id="4_lj1fl"]
+[ext_resource type="Texture2D" uid="uid://dr048o7ndmfba" path="res://Assets/Sprites/Tienda/Sprite-BotonBackground.png" id="4_wmhpl"]
+[ext_resource type="Texture2D" uid="uid://b5rd8belm4kkm" path="res://Assets/Sprites/Tienda/Sprite-Daño.png" id="5_hy1v1"]
+[ext_resource type="Texture2D" uid="uid://dy7q8raysfoqh" path="res://Assets/Sprites/Tienda/Sprite-Velocidad.png" id="6_y442n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4odei"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_758ka"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6gi6"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jw5qo"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6e4c"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_olrmb"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tc61o"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nait3"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjiyh"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1txgb"]
+content_margin_top = 15.0
+texture = ExtResource("4_wmhpl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0f1q1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_caemh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74cj0"]
 
 [node name="Tienda" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nxcia")
@@ -15,56 +68,140 @@ script = ExtResource("1_nxcia")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(4.27087, 3.59667)
-texture = ExtResource("1_7ggby")
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hxoma")
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 122.457
-offset_top = 16.4041
-offset_right = 180.457
-offset_bottom = 39.4041
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.498
+anchor_top = 0.156
+anchor_right = 0.498
+anchor_bottom = 0.156
+offset_left = -59.4401
+offset_top = -25.32
+offset_right = 60.5599
+offset_bottom = 24.68
+theme_override_fonts/font = ExtResource("3_trcrh")
+theme_override_font_sizes/font_size = 50
 text = "TIENDA"
 
 [node name="Monedas" type="Label" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_right = 80.0
-offset_bottom = 23.0
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.097
+anchor_top = 0.071
+anchor_right = 0.097
+anchor_bottom = 0.071
+offset_left = -69.16
+offset_top = -20.12
+offset_right = 110.84
+offset_bottom = 29.88
 scale = Vector2(0.772956, 0.816289)
+theme_override_fonts/font = ExtResource("3_trcrh")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_4odei")
 text = "Monedas: "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Vida" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 50.341
-offset_top = 56.1631
-offset_right = 92.341
-offset_bottom = 87.1631
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.272
+anchor_top = 0.5
+anchor_right = 0.272
+anchor_bottom = 0.5
+offset_left = -125.16
+offset_top = -140.0
+offset_right = 124.84
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_trcrh")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_758ka")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b6gi6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jw5qo")
 text = "Vida"
+icon = ExtResource("4_lj1fl")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="Daño" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 125.735
-offset_top = 56.1631
-offset_right = 158.735
-offset_bottom = 72.1631
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.498
+anchor_top = 0.514
+anchor_right = 0.498
+anchor_bottom = 0.514
+offset_left = -125.44
+offset_top = -150.08
+offset_right = 124.56
+offset_bottom = 149.92
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_trcrh")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_l6e4c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_olrmb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tc61o")
 text = "Daño"
+icon = ExtResource("5_hy1v1")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="Velocidad" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 201.832
-offset_top = 56.1631
-offset_right = 234.832
-offset_bottom = 72.1631
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.514
+anchor_right = 0.727
+anchor_bottom = 0.514
+offset_left = -124.36
+offset_top = -150.08
+offset_right = 125.64
+offset_bottom = 149.92
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_trcrh")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_nait3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xjiyh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1txgb")
 text = "Velocidad"
+icon = ExtResource("6_y442n")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="regresar" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 50.341
-offset_top = 125.95
-offset_right = 83.341
-offset_bottom = 141.95
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.922
+anchor_right = 0.5
+anchor_bottom = 0.923
+offset_left = -63.0
+offset_top = -19.84
+offset_right = 65.0
+offset_bottom = 19.44
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_trcrh")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_0f1q1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_caemh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_74cj0")
 text = "Regresar"
 
 [connection signal="pressed" from="CanvasLayer/TextureRect/Vida" to="." method="_on_vida_pressed"]
