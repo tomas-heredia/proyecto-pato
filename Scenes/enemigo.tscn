@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://diux8ix85s22m"]
+[gd_scene load_steps=12 format=3 uid="uid://diux8ix85s22m"]
 
 [ext_resource type="Script" path="res://Scripts/Enemigo.gd" id="1_li1jx"]
 [ext_resource type="Texture2D" uid="uid://dq3dd5sr4wu7h" path="res://Assets/Sprites/Enemigos/Zombie/zombie.png" id="2_8o1v7"]
@@ -31,6 +31,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_138bl"]
+resource_name = "dañado"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(6.27667, 1, 1e-05),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0a4qr"]
+resource_name = "muerte"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c14bj"]
+_data = {
+"dañado": SubResource("Animation_138bl"),
+"muerte": SubResource("Animation_0a4qr")
+}
+
 [node name="Enemigo" type="CharacterBody2D"]
 show_behind_parent = true
 visibility_layer = 2
@@ -59,5 +96,13 @@ scale = Vector2(0.515625, 0.507813)
 sprite_frames = SubResource("SpriteFrames_bmbje")
 animation = &"Walk"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c14bj")
+}
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Seguimineto" to="." method="_on_seguimineto_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

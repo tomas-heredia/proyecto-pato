@@ -21,3 +21,7 @@ func _on_tienda_button_up():
 
 func _on_salir_pressed():
 	get_tree().quit()
+
+
+func _on_creditos_pressed():
+	get_tree().change_scene_to_file("res://Scenes/creditos.tscn")

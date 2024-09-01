@@ -118,6 +118,7 @@ func _on_area_2d_area_entered(area):
 			nivel += 1
 			emit_signal("subirNivel")
 	elif  area.is_in_group("Moneda"):
+		Guardado.game_data.monedasTotales +=1
 		Guardado.game_data.monedas += 1
 		area.queue_free()
 	elif area.is_in_group("Vida"):

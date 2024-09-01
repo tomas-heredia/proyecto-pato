@@ -153,4 +153,5 @@ text = "SALIR"
 
 [connection signal="button_up" from="CanvasLayer/TextureRect/Iniciar" to="." method="_on_iniciar_button_up"]
 [connection signal="button_up" from="CanvasLayer/TextureRect/Tienda" to="." method="_on_tienda_button_up"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Creditos" to="." method="_on_creditos_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureRect/Salir" to="." method="_on_salir_pressed"]

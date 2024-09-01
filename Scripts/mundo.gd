@@ -2,7 +2,7 @@ extends Node2D
 @export var Zombie : PackedScene
 @export var menuNivel : PackedScene
 @export var Mate : PackedScene
-@export var Antivirus : PackedScene
+
 
 var enemigosMuertos = 0
 var seguirZombie = null
@@ -37,7 +37,7 @@ func _ready():
 	$Menu_pausa.connect("reiniciar",reiniciar)
 	$Menu_pausa.connect("reanudar",reanudar)
 	
-	$MenuMejoras.connect("antivirus", antivirus)
+
 
 	$Enemigo.connect("muerto",aumentarOleada)
 	
@@ -78,13 +78,18 @@ func reanudar():
 
 func muerte():
 	$Timers/ZombieTimer.stop()
+	if maxOleada > Guardado.game_data["oleadaMaxima"]:
+		Guardado.game_data["oleadaMaxima"] = maxOleada
 	$menu_final.visible = true
 	Guardado.game_data["enemigosMuertos"] += enemigosMuertos
+	Guardado.game_data["monedasTotales"] 
 	#$menu_final/TextureRect.position = $Player.position
 	$menu_final.muerto(numeroOleada)
 	$menu_final.pausar()
 
 func victira():
+	if maxOleada > Guardado.game_data["oleadaMaxima"]:
+		Guardado.game_data["oleadaMaxima"] = maxOleada
 	$Timers/ZombieTimer.stop()
 	$menu_final.visible = true
 	#$menu_final/TextureRect.position = $Player.position
@@ -131,18 +136,7 @@ func mate():
 	#$MenuMejoras/TextureRect.position = $Afuera.position
 	$MenuMejoras.pausar()
 
-func antivirus():
-	
-	$MenuMejoras/TextureRect.position = $Afuera.position
-	$MenuMejoras.pausar()
 
-func CrearAntiVirus():
-	var antiVirus = Antivirus.instantiate()
-	add_child(antiVirus)
-	antiVirus.position = $Player.position
-	seguirZombie = get_closest_object(get_tree().get_nodes_in_group("Enemigos"))
-	
-	antiVirus.velocity = antiVirus.global_position.direction_to(seguirZombie.global_position) * antiVirus.SPEED
 
 
 

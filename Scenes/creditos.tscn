@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnrkguly2q6k"]
+
+[ext_resource type="Script" path="res://Scenes/creditos.gd" id="1_8h5sp"]
+[ext_resource type="Texture2D" uid="uid://0m8fp37poh30" path="res://Assets/Sprites/Menu/MenuInicio.png" id="1_q0y2q"]
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8h5sp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_q0y2q")
+
+[node name="EnemigosTotales" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 259.0
+offset_right = 485.0
+offset_bottom = 282.0
+text = "enemigos matados:"
+
+[node name="MonedasTotales" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 310.0
+offset_right = 495.0
+offset_bottom = 333.0
+text = "Monedas obtenidas"
+
+[node name="OleadaMaxima" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 217.0
+offset_right = 524.0
+offset_bottom = 240.0
+text = "Maxima oleada alcanzada"
+
+[node name="Creadores" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 401.0
+offset_right = 446.0
+offset_bottom = 424.0
+text = "Creado por:"
+
+[node name="Diama" type="Label" parent="CanvasLayer/TextureRect"]
+offset_left = 358.0
+offset_top = 459.0
+offset_right = 443.0
+offset_bottom = 482.0
+text = "Diana Park"
+
+[node name="Tomas" type="Label" parent="CanvasLayer/TextureRect"]
+offset_left = 354.0
+offset_top = 513.0
+offset_right = 471.0
+offset_bottom = 536.0
+text = "Tomás Heredia"
+
+[node name="Regresar" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 588.0
+offset_right = 519.0
+offset_bottom = 596.0
+text = "Regresar"
+
+[connection signal="pressed" from="CanvasLayer/TextureRect/Regresar" to="." method="_on_regresar_pressed"]
