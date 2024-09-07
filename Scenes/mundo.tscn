@@ -1,10 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=24 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Texture2D" uid="uid://c30auoq8k43x7" path="res://Assets/Backgrounds/Tilesets/TilesetFloor.png" id="1_cy0r8"]
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
 [ext_resource type="Texture2D" uid="uid://4mexdat35axq" path="res://Assets/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="2_5r6h3"]
 [ext_resource type="PackedScene" uid="uid://pu6qv64aukhq" path="res://Scenes/player.tscn" id="2_7ux04"]
-[ext_resource type="PackedScene" uid="uid://c5iex2qhx53uq" path="res://Mate.tscn" id="3_36ur1"]
+[ext_resource type="PackedScene" uid="uid://d4bgxgynmcb4h" path="res://Scenes/Mate.tscn" id="3_8os2y"]
 [ext_resource type="Texture2D" uid="uid://bywri6e066uag" path="res://Assets/Backgrounds/Tilesets/TilesetNature.png" id="3_yroiy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_j0aj3"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_buoie"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://oj74cg0xomd0" path="res://Scenes/menu_final.tscn" id="11_37x06"]
 [ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="12_c82ro"]
 [ext_resource type="PackedScene" uid="uid://cnriaqypeaine" path="res://Scenes/menu_pausa.tscn" id="14_75huh"]
+[ext_resource type="PackedScene" uid="uid://badbv13e7uwit" path="res://Scenes/Bug.tscn" id="15_bwymh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q110a"]
 texture = ExtResource("1_cy0r8")
@@ -1129,7 +1130,8 @@ corner_radius_bottom_left = 12
 [node name="Mundo" type="Node2D" groups=["mundo"]]
 script = ExtResource("1_p17er")
 Zombie = ExtResource("8_7l0dy")
-Mate = ExtResource("3_36ur1")
+Mate = ExtResource("3_8os2y")
+Bug = ExtResource("15_bwymh")
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
@@ -1173,7 +1175,7 @@ position = Vector2(-450, 166)
 wait_time = 10.0
 one_shot = true
 
-[node name="ZombieTimer" type="Timer" parent="Timers"]
+[node name="EnemieTimer" type="Timer" parent="Timers"]
 autostart = true
 
 [node name="MateTimer" type="Timer" parent="Timers"]
@@ -1240,6 +1242,9 @@ offset_bottom = -152.0
 [node name="Menu_pausa" parent="." instance=ExtResource("14_75huh")]
 visible = false
 
+[node name="Bug" parent="." instance=ExtResource("15_bwymh")]
+position = Vector2(651, 763)
+
 [connection signal="timeout" from="Timers/DOSTimer" to="." method="_on_dos_timer_timeout"]
-[connection signal="timeout" from="Timers/ZombieTimer" to="." method="_on_zombie_timer_timeout"]
+[connection signal="timeout" from="Timers/EnemieTimer" to="." method="_on_enemie_timer_timeout"]
 [connection signal="timeout" from="Timers/MateTimer" to="." method="_on_mate_timer_timeout"]

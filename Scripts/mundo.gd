@@ -2,6 +2,7 @@ extends Node2D
 @export var Zombie : PackedScene
 @export var menuNivel : PackedScene
 @export var Mate : PackedScene
+@export var Bug : PackedScene
 
 
 var enemigosMuertos = 0
@@ -40,7 +41,7 @@ func _ready():
 
 
 	$Enemigo.connect("muerto",aumentarOleada)
-	
+	$Bug.connect("muerto",aumentarOleada)
 	$menu_final.connect("reiniciar", reiniciar)
 	
 	rng.randomize()
@@ -55,16 +56,21 @@ func _process(delta):
 		pausa()
 
 
-func crear_zombie():
+func crear_enemie():
+	var enemigo
 	$Player/Path2D/PathFollow2D.set_progress_ratio(rng.randf_range(0.0,1.0))
-	var enemigo = Zombie.instantiate()
-	add_child(enemigo)
+	var tipo = rng.randi_range(0,3)
+	if tipo < 3:
+		enemigo = Zombie.instantiate()
+	else:
+		enemigo = Bug.instantiate()
 	enemigo.connect("muerto",aumentarOleada)
 	enemigo.position = $Player/Path2D/PathFollow2D.position
+	add_child(enemigo)
 	enemigo.visibility_layer = 2
 	
-func _on_zombie_timer_timeout():
-	crear_zombie()
+func _on_enemie_timer_timeout():
+	crear_enemie()
 
 
 func pausa():
@@ -77,7 +83,7 @@ func reanudar():
 
 
 func muerte():
-	$Timers/ZombieTimer.stop()
+	$Timers/EnemieTimer.stop()
 	if maxOleada > Guardado.game_data["oleadaMaxima"]:
 		Guardado.game_data["oleadaMaxima"] = maxOleada
 	$menu_final.visible = true
@@ -90,7 +96,7 @@ func muerte():
 func victira():
 	if maxOleada > Guardado.game_data["oleadaMaxima"]:
 		Guardado.game_data["oleadaMaxima"] = maxOleada
-	$Timers/ZombieTimer.stop()
+	$Timers/EnemieTimer.stop()
 	$menu_final.visible = true
 	#$menu_final/TextureRect.position = $Player.position
 	Guardado.game_data["enemigosMuertos"] += enemigosMuertos
@@ -98,6 +104,10 @@ func victira():
 	$menu_final.pausar()
 	
 func reiniciar():
+	Globales.VidaZombie =  300
+	Globales.DañoZombie = 100
+	Globales.VidaBug = 100
+	Globales.DañoBug = 100
 	$menu_final.pausar()
 	
 func aumentarNivel():
@@ -157,13 +167,13 @@ func aumentarOleada():
 	estadoOleada = 1 + estadoOleada
 	$Player/Interfaces/ProgressBar.update((estadoOleada/maxOleada)*10)
 	print((estadoOleada/maxOleada)*100)
-	$Timers/ZombieTimer.wait_time = $Timers/ZombieTimer.wait_time/1.1
+	$Timers/EnemieTimer.wait_time = $Timers/EnemieTimer.wait_time/1.1
 	if estadoOleada == maxOleada:
 		
-		$Timers/ZombieTimer.stop()
+		$Timers/EnemieTimer.stop()
 		$Timers/DOSTimer.start()
 		for n in range(20):
-			crear_zombie()
+			crear_enemie()
 			
 		estadoOleada = 0
 		maxOleada = maxOleada +5
@@ -172,7 +182,7 @@ func aumentarOleada():
 		numeroOleada += 1
 		$Player/Interfaces/Oleada.text = "Oleada: "+str(numeroOleada) 
 		
-		$Timers/ZombieTimer.wait_time = 1
+		$Timers/EnemieTimer.wait_time = 1
 
 
 func _on_dos_timer_timeout():
@@ -181,7 +191,7 @@ func _on_dos_timer_timeout():
 	else:
 		Globales.VidaZombie += 200
 		Globales.DañoZombie += 100
-		$Timers/ZombieTimer.start()
+		$Timers/EnemieTimer.start()
 	
 
 func get_closest_object(objects):

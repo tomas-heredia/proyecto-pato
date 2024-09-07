@@ -56,6 +56,7 @@ offset_bottom = 424.0
 text = "Creado por:"
 
 [node name="Diama" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
 offset_left = 358.0
 offset_top = 459.0
 offset_right = 443.0
@@ -63,6 +64,7 @@ offset_bottom = 482.0
 text = "Diana Park"
 
 [node name="Tomas" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
 offset_left = 354.0
 offset_top = 513.0
 offset_right = 471.0

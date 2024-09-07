@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://badbv13e7uwit"]
+
+[ext_resource type="Script" path="res://Scripts/Bug.gd" id="1_bp3yy"]
+[ext_resource type="Texture2D" uid="uid://bir1uo7o0tq7k" path="res://Assets/Sprites/Enemigos/Bug/Bug.png" id="2_2yeet"]
+[ext_resource type="PackedScene" uid="uid://c6p31g88ddhd5" path="res://Scenes/experiencia.tscn" id="2_h2hap"]
+[ext_resource type="PackedScene" uid="uid://o8tjjt6xgurw" path="res://Scenes/moneda.tscn" id="3_udobk"]
+[ext_resource type="PackedScene" uid="uid://paiemra8t7ti" path="res://Scenes/vida.tscn" id="4_eh0rs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sx7b0"]
+radius = 6.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwjpq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2yeet")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2yeet")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_138bl"]
+resource_name = "dañado"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(6.27667, 1, 1e-05),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0a4qr"]
+resource_name = "muerte"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c14bj"]
+_data = {
+"dañado": SubResource("Animation_138bl"),
+"muerte": SubResource("Animation_0a4qr")
+}
+
+[node name="Bug" type="CharacterBody2D"]
+visibility_layer = 2
+scale = Vector2(1.38578, 1.24475)
+script = ExtResource("1_bp3yy")
+experiencia = ExtResource("2_h2hap")
+moneda = ExtResource("3_udobk")
+life = ExtResource("4_eh0rs")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemigos"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visibility_layer = 3
+shape = SubResource("CircleShape2D_sx7b0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.331143, 0.367984)
+sprite_frames = SubResource("SpriteFrames_pwjpq")
+animation = &"Idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c14bj")
+}
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

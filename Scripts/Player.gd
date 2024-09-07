@@ -114,7 +114,7 @@ func _on_area_2d_area_entered(area):
 		area.queue_free()
 		if experiencia >= siguienteNivel:
 			experiencia -= siguienteNivel
-			siguienteNivel += 500
+			siguienteNivel += 150
 			nivel += 1
 			emit_signal("subirNivel")
 	elif  area.is_in_group("Moneda"):

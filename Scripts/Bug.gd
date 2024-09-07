@@ -1,55 +1,51 @@
 extends CharacterBody2D
-
 var vivo :bool = true
 var vida : int
 @export var experiencia : PackedScene
 @export var moneda : PackedScene
 @export var life : PackedScene
 var daño : int
-var SPEED = 20.0
+var SPEED = 200.0
 var player = null
 var frameCount : bool = false
 signal muerto
 func _ready():
 	randomize()
-	vida = Globales.VidaZombie
-	daño = Globales.DañoZombie
-func _physics_process(delta):
-	frameCount = !frameCount
-	if frameCount:
-		follow()
-
-
-func _on_seguimineto_body_entered(body):
-	if body.is_in_group("Player"):
-		player = get_tree().get_nodes_in_group("Player")[0]
+	vida = Globales.VidaBug
+	daño = Globales.DañoBug
+	follow()
+	
+func _process(delta):
+	move_and_slide()
 
 func follow():
+	player = get_tree().get_nodes_in_group("Player")[0]
 	if player != null && vivo:
-		velocity = position.direction_to(player.position) * SPEED
+		
+		velocity = global_position.direction_to(player.global_position) * SPEED
 		animaciones()
-		move_and_slide()
+		
 
 
 func _on_area_2d_area_entered(objeto):
-	
-	if objeto.is_in_group("Balas"):
-		$AnimationPlayer.play("dañado")
-		vida = vida - objeto.get_parent().daño
-		objeto.free()
-	elif objeto.is_in_group("colision"):
-		
-		objeto.impacto()
-	elif objeto.is_in_group("proyectilArea"):
-		$AnimationPlayer.play("dañado")
-		if objeto.dañar:
-			velocity = Vector2(0,0)
-			vida -= objeto.daño
+	if vivo:
+		if objeto.is_in_group("Balas"):
+			$AnimationPlayer.play("dañado")
+			vida = vida - objeto.get_parent().daño
+			objeto.free()
+		elif objeto.is_in_group("colision"):
 			
+			objeto.impacto()
+		elif objeto.is_in_group("proyectilArea"):
+			$AnimationPlayer.play("dañado")
+			if objeto.dañar:
+				velocity = Vector2(0,0)
+				vida -= objeto.daño
+				
 
-	if vida <= 0:
-		vivo = false
-		muerte()
+		if vida <= 0 :
+			vivo = false
+			$AnimationPlayer.play("muerte")
 	
 func animaciones():
 	if velocity == Vector2.ZERO:
@@ -58,19 +54,6 @@ func animaciones():
 	else:
 		$AnimatedSprite2D.play("Walk")
 		
-		if velocity.x >0 :
-			$AnimatedSprite2D.flip_h = false
-			
-		else:
-			if velocity.x <0 :
-				$AnimatedSprite2D.flip_h = true
-				
-
-func muerte():
-	
-	$AnimationPlayer.play("muerte")
-	
-	
 
 
 func _on_animation_player_animation_finished(anim_name):
@@ -84,10 +67,13 @@ func _on_animation_player_animation_finished(anim_name):
 			var coin = moneda.instantiate()
 			coin.position = self.position
 			get_tree().call_group("mundo", "add_child",coin)
-		elif rand == 3:
+		else:
 			var hp = life.instantiate()
 			hp.position = self.position
 			get_tree().call_group("mundo", "add_child",hp)
 		emit_signal("muerto")
 		queue_free()
 
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	queue_free()
