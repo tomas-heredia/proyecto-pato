@@ -30,9 +30,5 @@ func _on_daño_timer_timeout():
 	
 	$restartTimer.start()
 
-
-
-
-
 func _on_restart_timer_timeout():
 	$Area/CollisionShape2D.disabled = true

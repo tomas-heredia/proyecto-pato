@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=25 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Texture2D" uid="uid://c30auoq8k43x7" path="res://Assets/Backgrounds/Tilesets/TilesetFloor.png" id="1_cy0r8"]
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="12_c82ro"]
 [ext_resource type="PackedScene" uid="uid://cnriaqypeaine" path="res://Scenes/menu_pausa.tscn" id="14_75huh"]
 [ext_resource type="PackedScene" uid="uid://badbv13e7uwit" path="res://Scenes/Bug.tscn" id="15_bwymh"]
+[ext_resource type="PackedScene" uid="uid://daq8s6f4h15d6" path="res://Scenes/fire_wall.tscn" id="15_i8clj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q110a"]
 texture = ExtResource("1_cy0r8")
@@ -1238,6 +1239,9 @@ offset_left = -277.0
 offset_top = -175.0
 offset_right = -237.0
 offset_bottom = -152.0
+
+[node name="FireWall" parent="Player" instance=ExtResource("15_i8clj")]
+show_behind_parent = true
 
 [node name="Menu_pausa" parent="." instance=ExtResource("14_75huh")]
 visible = false

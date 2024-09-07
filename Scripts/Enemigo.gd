@@ -45,7 +45,9 @@ func _on_area_2d_area_entered(objeto):
 		if objeto.dañar:
 			velocity = Vector2(0,0)
 			vida -= objeto.daño
-			
+	elif  objeto.is_in_group("FireWall"):
+		$AnimationPlayer.play("dañado")
+		vida -= 100
 
 	if vida <= 0:
 		vivo = false

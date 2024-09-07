@@ -139,6 +139,21 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_xd74d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3xb00")
 text = "Mate"
 
+[node name="Fire_Wall" type="Button" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 101.443
+offset_top = 242.061
+offset_right = 251.443
+offset_bottom = 277.061
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b75xv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_j2tv7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xd74d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3xb00")
+text = "Fire Wall"
+
 [node name="Marker1" type="Marker2D" parent="TextureRect"]
 position = Vector2(74.3402, 31.3633)
 
@@ -152,3 +167,4 @@ position = Vector2(75.8889, 194.614)
 [connection signal="button_up" from="TextureRect/MasVelocidad" to="." method="_on_mas_velocidad_button_up"]
 [connection signal="button_up" from="TextureRect/MasVida" to="." method="_on_mas_vida_button_up"]
 [connection signal="button_up" from="TextureRect/Mate" to="." method="_on_mate_button_up"]
+[connection signal="button_up" from="TextureRect/Fire_Wall" to="." method="_on_fire_wall_button_up"]

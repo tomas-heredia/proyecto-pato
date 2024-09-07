@@ -16,7 +16,7 @@ var cantMates = 0
 
 
 func _ready():
-
+	$Player/FireWall/AnimationPlayer.play("desactivado")
 	
 	estadoOleada = 0
 	maxOleada = 10
@@ -27,13 +27,16 @@ func _ready():
 	
 	$Player.connect("Muerte",muerte)
 	$Player.connect("subirNivel",aumentarNivel)
+	
 	$MenuMejoras.visible = false  # Oculta el menú al iniciar el juego.
 	$menu_final.visible = false  # Oculta el menú al iniciar el juego.
 	$Menu_pausa.visible = false
+	
 	$MenuMejoras.connect("aumentarDaño",aumentarDaño)
 	$MenuMejoras.connect("aumentarVelocidad",aumentarVelocidad)
 	$MenuMejoras.connect("aumentarVida",aumentarVida)
 	$MenuMejoras.connect("mate", mate)
+	$MenuMejoras.connect("fireWall", fireWall)
 	
 	$Menu_pausa.connect("reiniciar",reiniciar)
 	$Menu_pausa.connect("reanudar",reanudar)
@@ -146,7 +149,14 @@ func mate():
 	#$MenuMejoras/TextureRect.position = $Afuera.position
 	$MenuMejoras.pausar()
 
-
+func fireWall():
+	if $Player/FireWall/AnimationPlayer.current_animation == "desactivado":
+		$Player/FireWall/AnimationPlayer.play("tic")
+	else:
+		$Player/FireWall.scale = 1.5*$Player/FireWall.scale 
+	
+	$MenuMejoras.visible = false
+	$MenuMejoras.pausar()
 
 
 
@@ -191,6 +201,8 @@ func _on_dos_timer_timeout():
 	else:
 		Globales.VidaZombie += 200
 		Globales.DañoZombie += 100
+		Globales.VidaBug += 200
+		Globales.DañoBug += 100
 		$Timers/EnemieTimer.start()
 	
 
