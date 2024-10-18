@@ -3,7 +3,7 @@ class_name bug
 
 func _ready():
 	randomize()
-	SPEED = 200
+	SPEED = Globales.VelocidadBug
 	vida = Globales.VidaBug
 	daño = Globales.DañoBug
 	follow()

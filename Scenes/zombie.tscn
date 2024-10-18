@@ -1,22 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://byqcegoh2k75s"]
+[gd_scene load_steps=12 format=3 uid="uid://ci5062l5etuwh"]
 
-[ext_resource type="Script" path="res://i_love_u.gd" id="1_5yusu"]
-[ext_resource type="PackedScene" uid="uid://c6p31g88ddhd5" path="res://Scenes/experiencia.tscn" id="2_1bde5"]
-[ext_resource type="Texture2D" uid="uid://dq3dd5sr4wu7h" path="res://Assets/Sprites/Enemigos/Zombie/zombie.png" id="2_8ryur"]
-[ext_resource type="PackedScene" uid="uid://o8tjjt6xgurw" path="res://Scenes/moneda.tscn" id="3_l4h5y"]
-[ext_resource type="PackedScene" uid="uid://paiemra8t7ti" path="res://Scenes/vida.tscn" id="4_vfwkq"]
+[ext_resource type="Script" path="res://Scripts/Zombie.gd" id="1_35lp3"]
+[ext_resource type="Texture2D" uid="uid://dq3dd5sr4wu7h" path="res://Assets/Sprites/Enemigos/Zombie/zombie.png" id="2_7eoy7"]
+[ext_resource type="PackedScene" uid="uid://c6p31g88ddhd5" path="res://Scenes/experiencia.tscn" id="2_g8bhy"]
+[ext_resource type="PackedScene" uid="uid://o8tjjt6xgurw" path="res://Scenes/moneda.tscn" id="3_dknfc"]
+[ext_resource type="PackedScene" uid="uid://paiemra8t7ti" path="res://Scenes/vida.tscn" id="4_6x44s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_14jri"]
-size = Vector2(15, 18.3333)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65xnj"]
+size = Vector2(15, 20)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fffph"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4ktd"]
 radius = 1503.47
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_p3mm1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_dab1y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8ryur")
+"texture": ExtResource("2_7eoy7")
 }],
 "loop": true,
 "name": &"Idle",
@@ -24,7 +24,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8ryur")
+"texture": ExtResource("2_7eoy7")
 }],
 "loop": true,
 "name": &"Walk",
@@ -68,32 +68,32 @@ _data = {
 "muerte": SubResource("Animation_0a4qr")
 }
 
-[node name="ILoveU" type="CharacterBody2D"]
+[node name="Zombie" type="CharacterBody2D"]
 visibility_layer = 2
-scale = Vector2(3, 3)
-script = ExtResource("1_5yusu")
-experiencia = ExtResource("2_1bde5")
-moneda = ExtResource("3_l4h5y")
-life = ExtResource("4_vfwkq")
+z_index = 1
+script = ExtResource("1_35lp3")
+experiencia = ExtResource("2_g8bhy")
+moneda = ExtResource("3_dknfc")
+life = ExtResource("4_6x44s")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemigos"]]
 texture_filter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemigos"]]
-position = Vector2(-1.5, -2.5)
-shape = SubResource("RectangleShape2D_14jri")
+position = Vector2(-1.5, -2)
+shape = SubResource("RectangleShape2D_65xnj")
 
 [node name="Seguimineto" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seguimineto"]
 visible = false
-shape = SubResource("CircleShape2D_fffph")
+shape = SubResource("CircleShape2D_a4ktd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-2, -1)
 scale = Vector2(0.515625, 0.507813)
-sprite_frames = SubResource("SpriteFrames_p3mm1")
+sprite_frames = SubResource("SpriteFrames_dab1y")
 animation = &"Walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -106,4 +106,3 @@ libraries = {
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Seguimineto" to="." method="_on_seguimineto_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]

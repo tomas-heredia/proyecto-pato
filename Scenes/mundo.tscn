@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cnriaqypeaine" path="res://Scenes/menu_pausa.tscn" id="14_75huh"]
 [ext_resource type="PackedScene" uid="uid://badbv13e7uwit" path="res://Scenes/Bug.tscn" id="15_bwymh"]
 [ext_resource type="PackedScene" uid="uid://daq8s6f4h15d6" path="res://Scenes/fire_wall.tscn" id="15_i8clj"]
-[ext_resource type="PackedScene" uid="uid://byqcegoh2k75s" path="res://Scenes/i_love_u.tscn" id="17_36b21"]
+[ext_resource type="PackedScene" uid="uid://ci5062l5etuwh" path="res://Scenes/zombie.tscn" id="18_hi7n4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q110a"]
 texture = ExtResource("1_cy0r8")
@@ -1131,7 +1131,7 @@ corner_radius_bottom_left = 12
 
 [node name="Mundo" type="Node2D" groups=["mundo"]]
 script = ExtResource("1_p17er")
-Zombie = ExtResource("8_7l0dy")
+Zombie = ExtResource("18_hi7n4")
 Mate = ExtResource("3_8os2y")
 Bug = ExtResource("15_bwymh")
 
@@ -1250,8 +1250,8 @@ visible = false
 [node name="Bug" parent="." instance=ExtResource("15_bwymh")]
 position = Vector2(651, 763)
 
-[node name="ILoveU" parent="." instance=ExtResource("17_36b21")]
-position = Vector2(480, 671)
+[node name="Zombie" parent="." instance=ExtResource("18_hi7n4")]
+position = Vector2(687, 679)
 
 [connection signal="timeout" from="Timers/DOSTimer" to="." method="_on_dos_timer_timeout"]
 [connection signal="timeout" from="Timers/EnemieTimer" to="." method="_on_enemie_timer_timeout"]

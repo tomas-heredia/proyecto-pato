@@ -12,8 +12,7 @@ var frameCount : bool = false
 signal muerto
 func _ready():
 	randomize()
-	vida = Globales.VidaZombie
-	daño = Globales.DañoZombie
+	
 func _physics_process(delta):
 	frameCount = !frameCount
 	if frameCount:
