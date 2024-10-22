@@ -87,10 +87,13 @@ func animaciones():
 		if velocity.x >0 :
 			$AnimatedSprite2D.flip_h = false
 			$Arma/Sprite2D.flip_v = false
+			$Arma/Sprite2D/Shoot.set_position(Vector2(20.3,-15.65))
+
 		else:
 			if velocity.x <0 :
 				$AnimatedSprite2D.flip_h = true
 				$Arma/Sprite2D.flip_v = true
+				$Arma/Sprite2D/Shoot.set_position(Vector2(20.3,15.65))
 
 func moverMarco():
 	$Path2D.curve.set_point_position(0,position+Vector2(-300,-200))

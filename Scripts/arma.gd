@@ -23,11 +23,12 @@ func disparar():
 	disparo.rotation = self.rotation
 	
 	
-	disparo.global_position = $Shoot/Direction.global_position
-	disparo.direccion = $Shoot/Direction.get_global_position()-$Shoot.get_global_position()
+	disparo.global_position = $Sprite2D/Shoot/Direction.global_position
+	disparo.direccion = $Sprite2D/Shoot/Direction.get_global_position()-$Sprite2D/Shoot.get_global_position()
 	get_tree().call_group("mundo", "add_child",disparo)
 	
 
 
 func _on_tiempo_disparo_timeout():
 	disparar()
+

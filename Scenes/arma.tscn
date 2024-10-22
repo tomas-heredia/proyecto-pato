@@ -15,10 +15,11 @@ position = Vector2(20, -0.5)
 scale = Vector2(0.541667, 0.479167)
 texture = ExtResource("3_q6q6a")
 
-[node name="Shoot" type="Marker2D" parent="."]
-position = Vector2(31, -8)
+[node name="Shoot" type="Marker2D" parent="Sprite2D"]
+position = Vector2(20.3077, -15.6522)
+scale = Vector2(1.84615, 2.08695)
 
-[node name="Direction" type="Marker2D" parent="Shoot"]
+[node name="Direction" type="Marker2D" parent="Sprite2D/Shoot"]
 position = Vector2(21, 0)
 
 [node name="TiempoDisparo" type="Timer" parent="."]
