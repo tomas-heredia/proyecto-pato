@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=34 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
 [ext_resource type="Texture2D" uid="uid://4mexdat35axq" path="res://Assets/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="2_5r6h3"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_khu1j"]
 [ext_resource type="Texture2D" uid="uid://brj8tni6geeie" path="res://Assets/Backgrounds/Tilesets/tile3.png" id="7_v161t"]
 [ext_resource type="Texture2D" uid="uid://58a3lu2kti1j" path="res://Assets/Backgrounds/Tilesets/tile4.png" id="8_4eu2y"]
-[ext_resource type="PackedScene" uid="uid://diux8ix85s22m" path="res://Scenes/enemigo.tscn" id="8_7l0dy"]
 [ext_resource type="Texture2D" uid="uid://ckio1wmnnf0wx" path="res://Assets/Backgrounds/Tilesets/tile5.png" id="9_h2m68"]
 [ext_resource type="PackedScene" uid="uid://dpaqh1pxbc4mn" path="res://Scenes/menu_mejoras.tscn" id="10_fcit1"]
 [ext_resource type="PackedScene" uid="uid://oj74cg0xomd0" path="res://Scenes/menu_final.tscn" id="11_37x06"]
@@ -732,9 +731,6 @@ zoom = Vector2(3, 3)
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("7_khu1j")
 
-[node name="Enemigo" parent="." instance=ExtResource("8_7l0dy")]
-position = Vector2(685, 725)
-
 [node name="MenuMejoras" parent="." instance=ExtResource("10_fcit1")]
 
 [node name="menu_final" parent="." instance=ExtResource("11_37x06")]
@@ -818,12 +814,6 @@ show_behind_parent = true
 
 [node name="Menu_pausa" parent="." instance=ExtResource("14_75huh")]
 visible = false
-
-[node name="Bug" parent="." instance=ExtResource("15_bwymh")]
-position = Vector2(651, 763)
-
-[node name="Zombie" parent="." instance=ExtResource("18_hi7n4")]
-position = Vector2(687, 679)
 
 [connection signal="timeout" from="Timers/DOSTimer" to="." method="_on_dos_timer_timeout"]
 [connection signal="timeout" from="Timers/EnemieTimer" to="." method="_on_enemie_timer_timeout"]

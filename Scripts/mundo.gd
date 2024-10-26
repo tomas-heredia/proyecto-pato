@@ -43,9 +43,9 @@ func _ready():
 	
 
 
-	$Enemigo.connect("muerto",aumentarOleada)
-	$Bug.connect("muerto",aumentarOleada)
-	$menu_final.connect("reiniciar", reiniciar)
+	#$Enemigo.connect("muerto",aumentarOleada)
+	#$Bug.connect("muerto",aumentarOleada)
+	#$menu_final.connect("reiniciar", reiniciar)
 	
 	rng.randomize()
 
