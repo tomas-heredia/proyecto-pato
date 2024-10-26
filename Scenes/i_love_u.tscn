@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://i_love_u.gd" id="1_5yusu"]
 [ext_resource type="PackedScene" uid="uid://c6p31g88ddhd5" path="res://Scenes/experiencia.tscn" id="2_1bde5"]
-[ext_resource type="Texture2D" uid="uid://dq3dd5sr4wu7h" path="res://Assets/Sprites/Enemigos/Zombie/zombie.png" id="2_8ryur"]
 [ext_resource type="PackedScene" uid="uid://o8tjjt6xgurw" path="res://Scenes/moneda.tscn" id="3_l4h5y"]
 [ext_resource type="PackedScene" uid="uid://paiemra8t7ti" path="res://Scenes/vida.tscn" id="4_vfwkq"]
+[ext_resource type="Texture2D" uid="uid://dj83385abl0t" path="res://Assets/Sprites/Enemigos/ILoveU/ILoveU.png" id="5_tdteq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14jri"]
 size = Vector2(15, 18.3333)
@@ -16,7 +16,7 @@ radius = 1503.47
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8ryur")
+"texture": ExtResource("5_tdteq")
 }],
 "loop": true,
 "name": &"Idle",
@@ -24,7 +24,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8ryur")
+"texture": ExtResource("5_tdteq")
 }],
 "loop": true,
 "name": &"Walk",
@@ -94,7 +94,7 @@ texture_filter = 1
 position = Vector2(-2, -1)
 scale = Vector2(0.515625, 0.507813)
 sprite_frames = SubResource("SpriteFrames_p3mm1")
-animation = &"Walk"
+animation = &"Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

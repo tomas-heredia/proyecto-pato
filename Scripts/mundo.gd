@@ -3,7 +3,7 @@ extends Node2D
 @export var menuNivel : PackedScene
 @export var Mate : PackedScene
 @export var Bug : PackedScene
-
+@export var ILoveU : PackedScene
 
 var enemigosMuertos = 0
 var seguirZombie = null
@@ -71,7 +71,19 @@ func crear_enemie():
 	enemigo.position = $Player/Path2D/PathFollow2D.position
 	add_child(enemigo)
 	enemigo.visibility_layer = 2
+
+func crear_ILoveU():
+	var enemigo
+	$Player/Path2D/PathFollow2D.set_progress_ratio(rng.randf_range(0.0,1.0))
 	
+	enemigo = ILoveU.instantiate()
+	
+	enemigo.connect("muerto",aumentarOleada)
+	enemigo.position = $Player/Path2D/PathFollow2D.position
+	add_child(enemigo)
+	enemigo.visibility_layer = 2
+
+
 func _on_enemie_timer_timeout():
 	crear_enemie()
 
@@ -181,10 +193,14 @@ func aumentarOleada():
 	if estadoOleada == maxOleada:
 		
 		$Timers/EnemieTimer.stop()
-		$Timers/DOSTimer.start()
-		for n in range(20):
-			crear_enemie()
-			
+		var tipo = rng.randi_range(0,1)
+		
+		if tipo == 1:
+			$Timers/DOSTimer.start()
+			for n in range(20):
+				crear_enemie()
+		else:
+			crear_ILoveU()
 		estadoOleada = 0
 		maxOleada = maxOleada +5
 		$Player/Interfaces/ProgressBar.update((estadoOleada/maxOleada)*10)

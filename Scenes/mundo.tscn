@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=35 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
 [ext_resource type="Texture2D" uid="uid://4mexdat35axq" path="res://Assets/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="2_5r6h3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bywri6e066uag" path="res://Assets/Backgrounds/Tilesets/TilesetNature.png" id="3_yroiy"]
 [ext_resource type="Texture2D" uid="uid://m10goxvh2aik" path="res://Assets/Backgrounds/Tilesets/tile.png" id="5_8bvux"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_j0aj3"]
+[ext_resource type="PackedScene" uid="uid://byqcegoh2k75s" path="res://Scenes/i_love_u.tscn" id="5_r5jmx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_buoie"]
 [ext_resource type="Texture2D" uid="uid://bo3m7nylqjpag" path="res://Assets/Backgrounds/Tilesets/tile2.png" id="6_w1yu6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_khu1j"]
@@ -702,6 +703,7 @@ script = ExtResource("1_p17er")
 Zombie = ExtResource("18_hi7n4")
 Mate = ExtResource("3_8os2y")
 Bug = ExtResource("15_bwymh")
+ILoveU = ExtResource("5_r5jmx")
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
