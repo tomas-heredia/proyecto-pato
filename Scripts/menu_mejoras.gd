@@ -7,7 +7,6 @@ signal mate
 signal fireWall
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#hide()
 	pass
 
 
@@ -16,6 +15,7 @@ func _process(delta):
 	pass
 
 func pausar():
+	$Pausa.play()
 	get_tree().paused = not get_tree().paused
 	
 func _on_mas_daño_button_up():

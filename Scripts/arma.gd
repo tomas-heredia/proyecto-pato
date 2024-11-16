@@ -1,12 +1,13 @@
 extends Node2D
 @export var bala : PackedScene
 @export var velocidad_disparo: int
-@export var daño: int
+var daño
 var velocidad_disparo_aux = velocidad_disparo
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
+	daño = Guardado.game_data["daño"] * Guardado.game_data.mejoras.velocidad
 	velocidad_disparo = 32 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,8 +26,9 @@ func disparar():
 	
 	disparo.global_position = $Sprite2D/Shoot/Direction.global_position
 	disparo.direccion = $Sprite2D/Shoot/Direction.get_global_position()-$Sprite2D/Shoot.get_global_position()
+	disparo.daño = daño
 	get_tree().call_group("mundo", "add_child",disparo)
-	
+	$ShootSound.play()
 
 
 func _on_tiempo_disparo_timeout():

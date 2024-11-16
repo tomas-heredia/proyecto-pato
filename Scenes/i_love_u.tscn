@@ -103,7 +103,12 @@ libraries = {
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
+[node name="KnockBack" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Seguimineto" to="." method="_on_seguimineto_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
+[connection signal="timeout" from="KnockBack" to="." method="_on_knock_back_timeout"]

@@ -33,6 +33,8 @@ func follow():
 func _on_area_2d_area_entered(objeto):
 	
 	if objeto.is_in_group("Balas"):
+		SPEED = 0
+		$KnockBack.start()
 		$AnimationPlayer.play("dañado")
 		vida = vida - objeto.get_parent().daño
 		objeto.free()
@@ -92,3 +94,7 @@ func _on_animation_player_animation_finished(anim_name):
 		emit_signal("muerto")
 		queue_free()
 
+
+
+func _on_knock_back_timeout():
+		SPEED = 20

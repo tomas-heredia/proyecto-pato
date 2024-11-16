@@ -4,8 +4,8 @@ var save_path = "user://save_game.dat"
 
 var game_data : Dictionary= {
 	"vida" : 400,
-	"daño" : 100,
-	"velocidad" : 200,
+	"daño" : 300,
+	"velocidad" : 40,
 	"monedas": 0,
 	"mejoras" : {
 		"vida": 1,

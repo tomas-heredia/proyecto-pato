@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnriaqypeaine"]
+[gd_scene load_steps=4 format=3 uid="uid://cnriaqypeaine"]
 
 [ext_resource type="Script" path="res://Menu_pausa.gd" id="1_xoffv"]
 [ext_resource type="Texture2D" uid="uid://csb2b0rijfdep" path="res://Assets/Sprites/Menu/Sprite-MenuMejoras2.png" id="2_d5cyt"]
+[ext_resource type="AudioStream" uid="uid://cxsq00rd1fw14" path="res://Assets/Sounds/efects/90s-game-ui-6-185099.wav" id="3_mhb16"]
 
 [node name="Menu_pausa" type="CanvasLayer"]
 process_mode = 2
 script = ExtResource("1_xoffv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 300.0
-offset_bottom = 200.0
+offset_left = 587.0
+offset_top = 262.0
+offset_right = 887.0
+offset_bottom = 462.0
+scale = Vector2(1.86965, 1.75476)
 texture = ExtResource("2_d5cyt")
 
 [node name="Label" type="Label" parent="TextureRect"]
@@ -48,6 +52,13 @@ offset_bottom = 136.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Salir "
 
+[node name="Pausa" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mhb16")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
 [connection signal="button_up" from="TextureRect/reiniciar" to="." method="_on_reiniciar_button_up"]
 [connection signal="button_up" from="TextureRect/reanudar" to="." method="_on_reanudar_button_up"]
 [connection signal="button_up" from="TextureRect/salir" to="." method="_on_salir_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

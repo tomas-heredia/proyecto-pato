@@ -8,7 +8,8 @@ var daño : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	daño = 300
+	
+	
 	$Area2D/AnimatedSprite2D.animation = str(randi_range(0,1))
 
 

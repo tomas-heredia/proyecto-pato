@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dlwk7r6ct2e2p"]
+[gd_scene load_steps=35 format=3 uid="uid://dlwk7r6ct2e2p"]
 
 [ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_p17er"]
 [ext_resource type="Texture2D" uid="uid://4mexdat35axq" path="res://Assets/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="2_5r6h3"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://badbv13e7uwit" path="res://Scenes/Bug.tscn" id="15_bwymh"]
 [ext_resource type="PackedScene" uid="uid://daq8s6f4h15d6" path="res://Scenes/fire_wall.tscn" id="15_i8clj"]
 [ext_resource type="PackedScene" uid="uid://ci5062l5etuwh" path="res://Scenes/zombie.tscn" id="18_hi7n4"]
+[ext_resource type="AudioStream" uid="uid://bi637g6ykovv0" path="res://Assets/Sounds/Musica/Jeremy-Blake-Powerup_-NO-COPYRIGHT-8-bit-Music.wav" id="22_g1kxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pyxca"]
 resource_name = "tileVerde"
@@ -814,6 +815,9 @@ show_behind_parent = true
 
 [node name="Menu_pausa" parent="." instance=ExtResource("14_75huh")]
 visible = false
+
+[node name="Musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_g1kxp")
 
 [connection signal="timeout" from="Timers/DOSTimer" to="." method="_on_dos_timer_timeout"]
 [connection signal="timeout" from="Timers/EnemieTimer" to="." method="_on_enemie_timer_timeout"]

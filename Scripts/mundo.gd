@@ -16,6 +16,7 @@ var cantMates = 0
 
 
 func _ready():
+	$Musica.playing = true
 	$Player/FireWall/AnimationPlayer.play("desactivado")
 	
 	estadoOleada = 0
@@ -123,7 +124,7 @@ func reiniciar():
 	Globales.DañoZombie = 100
 	Globales.VidaBug = 100
 	Globales.DañoBug = 100
-	$menu_final.pausar()
+
 	
 func aumentarNivel():
 	#Funcion que despliega el menu de mejoras

@@ -35,7 +35,8 @@ func _ready():
 	multVelocidad = float(get_cpu_speed())
 	if multVelocidad>= 3:
 		multVelocidad = 3
-	SPEED = SPEED*multVelocidad
+		
+	SPEED = Guardado.game_data["velocidad"]*multVelocidad
 	
 	
 	

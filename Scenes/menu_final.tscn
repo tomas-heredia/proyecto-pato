@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://oj74cg0xomd0"]
+[gd_scene load_steps=14 format=3 uid="uid://oj74cg0xomd0"]
 
 [ext_resource type="Script" path="res://Scripts/menu_dinal.gd" id="1_8nbdj"]
 [ext_resource type="Texture2D" uid="uid://cbf6ko0t2tws1" path="res://Assets/Sprites/Menu/Sprite-MenuFinal.png" id="2_udtgu"]
 [ext_resource type="FontFile" uid="uid://coreqeika72fv" path="res://Fonts/VT323/VT323-Regular.ttf" id="3_b4dyu"]
 [ext_resource type="Texture2D" uid="uid://dg1vmuxspkm2l" path="res://Assets/Sprites/Menu/Sprite-MenuBoton.png" id="4_qeef2"]
 [ext_resource type="Texture2D" uid="uid://dudg32n0u8yxh" path="res://Assets/Sprites/Menu/Sprite-MenuBotonPressed.png" id="5_kxjsb"]
+[ext_resource type="AudioStream" uid="uid://cxsq00rd1fw14" path="res://Assets/Sounds/efects/90s-game-ui-6-185099.wav" id="6_kqrsc"]
 
 [sub_resource type="Theme" id="Theme_1ki14"]
 default_font_size = 25
@@ -103,6 +104,9 @@ offset_bottom = 58.0
 theme_override_fonts/font = ExtResource("3_b4dyu")
 theme_override_font_sizes/font_size = 28
 text = "Oleada:"
+
+[node name="Pausa" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kqrsc")
 
 [connection signal="button_up" from="TextureRect/Reiniciar" to="." method="_on_reiniciar_button_up"]
 [connection signal="button_up" from="TextureRect/Salir" to="." method="_on_salir_button_up"]
