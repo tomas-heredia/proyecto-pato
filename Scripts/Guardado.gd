@@ -12,7 +12,7 @@ var game_data : Dictionary= {
 		"daño": 1,
 		"velocidad": 1
 	},
-	"enemigosMuertos": 3,
+	"enemigosMuertos": 0,
 	"monedasTotales": 0,
 	"oleadaMaxima": 0
 }
