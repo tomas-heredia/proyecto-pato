@@ -25,7 +25,8 @@ Globales="*res://Scripts/Globales.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
+window/size/mode=4
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

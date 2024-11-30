@@ -55,7 +55,7 @@ func _ready():
 func _process(delta):
 	$Player/Interfaces/contEnemigos.text = "enemigos: " +str(enemigosMuertos)
 	$Player/Interfaces/Monedas.text = "Monedas: " + str(Guardado.game_data.monedas)
-	$Player/Label.text = str($Player.experiencia)
+	
 	if Input.is_action_just_pressed("Pausa"):
 		pausa()
 
@@ -76,6 +76,14 @@ func crear_enemie():
 func crear_ILoveU():
 	var enemigo
 	$Player/Path2D/PathFollow2D.set_progress_ratio(rng.randf_range(0.0,1.0))
+	if numeroOleada == 3:
+			victira()
+	else:
+		Globales.VidaZombie += 200
+		Globales.DañoZombie += 100
+		Globales.VidaBug += 200
+		Globales.DañoBug += 100
+		$Timers/EnemieTimer.start()
 	
 	enemigo = ILoveU.instantiate()
 	
@@ -107,6 +115,7 @@ func muerte():
 	Guardado.game_data["monedasTotales"] 
 	#$menu_final/TextureRect.position = $Player.position
 	$menu_final.muerto(numeroOleada)
+	Guardado.save_game()
 	$menu_final.pausar()
 
 func victira():
@@ -120,6 +129,7 @@ func victira():
 	$menu_final.pausar()
 	
 func reiniciar():
+	
 	Globales.VidaZombie =  300
 	Globales.DañoZombie = 100
 	Globales.VidaBug = 100

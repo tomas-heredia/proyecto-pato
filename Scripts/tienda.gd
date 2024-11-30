@@ -30,7 +30,7 @@ func _on_daño_pressed():
 func _on_velocidad_pressed():
 	if Guardado.game_data.monedas >= 5*Guardado.game_data.mejoras.velocidad:
 		Guardado.game_data.monedas -=5*Guardado.game_data.mejoras.velocidad
-		Guardado.game_data.velocidad += 100
+		Guardado.game_data.velocidad += 20
 		Guardado.game_data.mejoras.velocidad +=1
 
 

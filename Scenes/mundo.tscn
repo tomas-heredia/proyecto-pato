@@ -764,51 +764,57 @@ tween_resource = SubResource("Resource_tluwv")
 [node name="Interfaces" type="Control" parent="Player"]
 z_index = 2
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -5.0
+offset_top = -110.0
+offset_right = -5.0
+offset_bottom = -110.0
+grow_horizontal = 2
+scale = Vector2(0.726532, 0.64565)
+size_flags_vertical = 4
 
 [node name="ProgressBar" type="ProgressBar" parent="Player/Interfaces"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.292
-anchor_bottom = 0.033
-offset_left = -199.0
-offset_top = -153.0
-offset_right = 203.948
-offset_bottom = -130.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -201.474
+offset_right = 201.474
+offset_bottom = 23.0
+grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_o25xn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_or4xn")
 show_percentage = false
 script = ExtResource("12_c82ro")
 
 [node name="Oleada" type="Label" parent="Player/Interfaces"]
-layout_mode = 0
-offset_left = -37.0
-offset_top = -131.0
-offset_right = 18.0
-offset_bottom = -108.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = 24.0
+offset_right = 28.0
+offset_bottom = 47.0
+grow_horizontal = 2
 text = "Oleada"
 
 [node name="Monedas" type="Label" parent="Player/Interfaces"]
 layout_mode = 0
-offset_left = 149.0
-offset_top = -128.0
-offset_right = 204.0
-offset_bottom = -105.0
+offset_left = 106.0
+offset_top = 25.0
+offset_right = 177.0
+offset_bottom = 48.0
 text = "Monedas"
 
 [node name="contEnemigos" type="Label" parent="Player/Interfaces"]
 layout_mode = 0
-offset_left = -211.0
-offset_top = -126.0
-offset_right = -136.0
-offset_bottom = -103.0
+offset_left = -196.0
+offset_top = 27.0
+offset_right = -121.0
+offset_bottom = 50.0
 text = "enemigos"
-
-[node name="Label" type="Label" parent="Player"]
-offset_left = -277.0
-offset_top = -175.0
-offset_right = -237.0
-offset_bottom = -152.0
 
 [node name="FireWall" parent="Player" instance=ExtResource("15_i8clj")]
 show_behind_parent = true

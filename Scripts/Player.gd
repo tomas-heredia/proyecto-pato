@@ -25,17 +25,17 @@ func _ready():
 	var numero = float(OS.get_memory_info().physical) /(10**10) #obtengo la memoria 
 	var decimales = 1
 	multVida = round(numero * pow(10, decimales)) / pow(10, decimales)
-	if multVida >= 3: # aqui estoy limitando el multiplicador de memoria
-		multVida = 3
+	if multVida == 0:
+		multVida = 1
+	min(multVida, 3) # aqui estoy limitando el multiplicador de memoria
+	
 	vidaTotal = Guardado.game_data["vida"] * multVida
 	vida = vidaTotal
 	$ProgressBar.max_value = vidaTotal
 	$ProgressBar.value = vida
 	
-	multVelocidad = float(get_cpu_speed())
-	if multVelocidad>= 3:
-		multVelocidad = 3
-		
+	print(float(get_cpu_speed()))
+	multVelocidad = clamp(float(get_cpu_speed()), 2.0, 3.0)
 	SPEED = Guardado.game_data["velocidad"]*multVelocidad
 	
 	

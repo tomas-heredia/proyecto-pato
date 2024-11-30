@@ -28,7 +28,7 @@ func _on_reanudar_button_up():
 	
 
 func _on_salir_button_up():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/Menu_inicio.tscn")
 
 
 func _on_timer_timeout():

@@ -17,7 +17,8 @@ func pausar():
 
 
 func _on_salir_button_up():
-	get_tree().quit()
+	get_tree().paused = not get_tree().paused
+	get_tree().change_scene_to_file("res://Scenes/Menu_inicio.tscn")
 
 
 func _on_reiniciar_button_up():

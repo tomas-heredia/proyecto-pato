@@ -25,70 +25,65 @@ texture = ExtResource("1_q0y2q")
 
 [node name="EnemigosTotales" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 324.0
-offset_top = 184.0
-offset_right = 798.0
-offset_bottom = 253.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+offset_left = 128.0
+offset_top = 191.0
+offset_right = 601.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
 text = "Enemigos matados:"
-
-[node name="MonedasTotales" type="Label" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 331.0
-offset_top = 396.0
-offset_right = 807.0
-offset_bottom = 465.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "Monedas obtenidas"
 
 [node name="OleadaMaxima" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 327.0
-offset_top = 290.0
-offset_right = 952.0
-offset_bottom = 359.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+offset_left = 131.0
+offset_top = 275.0
+offset_right = 756.0
+offset_bottom = 344.0
+theme_override_font_sizes/font_size = 40
 text = "Maxima oleada alcanzada"
+
+[node name="MonedasTotales" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 349.0
+offset_right = 609.0
+offset_bottom = 418.0
+theme_override_font_sizes/font_size = 40
+text = "Monedas obtenidas"
 
 [node name="Creadores" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 340.0
-offset_top = 472.0
-offset_right = 625.0
-offset_bottom = 541.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+offset_left = 144.0
+offset_top = 425.0
+offset_right = 429.0
+offset_bottom = 494.0
+theme_override_font_sizes/font_size = 40
 text = "Creado por:"
 
 [node name="Diama" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 540.0
-offset_right = 610.0
-offset_bottom = 609.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+offset_left = 153.0
+offset_top = 507.0
+offset_right = 418.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 40
 text = "Diana Park"
 
 [node name="Tomas" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 344.0
-offset_top = 605.0
-offset_right = 709.0
-offset_bottom = 674.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+offset_left = 160.0
+offset_top = 579.0
+offset_right = 525.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 40
 text = "Tomás Heredia"
 
 [node name="Regresar" type="Button" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 626.0
-offset_top = 670.0
-offset_right = 703.0
-offset_bottom = 701.0
+offset_left = 613.0
+offset_top = 660.0
+offset_right = 690.0
+offset_bottom = 691.0
 scale = Vector2(1.55627, 1.2122)
 text = "Regresar"
 
